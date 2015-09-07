@@ -22,5 +22,8 @@
 		
 		<!-- Entities -->
 		<mapping class="br.com.beasy.model.User"/>
+		<mapping class="br.com.beasy.model.Subject"/>
+		<mapping class="br.com.beasy.model.Task"/>
+		<mapping class="br.com.beasy.model.SubTask"/>
 	</session-factory>
 </hibernate-configuration>

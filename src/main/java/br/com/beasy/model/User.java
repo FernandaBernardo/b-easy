@@ -1,20 +1,25 @@
 package br.com.beasy.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
 	@Id @GeneratedValue
 	private Long id;
-	private String nome;
-	private int idade;
+	private String name;
+	private int age;
 	private String email;
-	private String senha;
-	private String faculdade;
-	private int semestre;
-	private String curso;
+	private String password;
+	private String college;
+	private int semester;
+	private String course;
+	@OneToMany
+	private List<Subject> subjects;
 	
 	public Long getId() {
 		return id;
@@ -22,17 +27,17 @@ public class User {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getIdade() {
-		return idade;
+	public int getAge() {
+		return age;
 	}
-	public void setIdade(int idade) {
-		this.idade = idade;
+	public void setAge(int age) {
+		this.age = age;
 	}
 	public String getEmail() {
 		return email;
@@ -40,28 +45,34 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getSenha() {
-		return senha;
+	public String getPassword() {
+		return password;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public String getFaculdade() {
-		return faculdade;
+	public String getCollege() {
+		return college;
 	}
-	public void setFaculdade(String faculdade) {
-		this.faculdade = faculdade;
+	public void setCollege(String college) {
+		this.college = college;
 	}
-	public int getSemestre() {
-		return semestre;
+	public int getSemester() {
+		return semester;
 	}
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
+	public void setSemester(int semester) {
+		this.semester = semester;
 	}
-	public String getCurso() {
-		return curso;
+	public String getCourse() {
+		return course;
 	}
-	public void setCurso(String curso) {
-		this.curso = curso;
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	public List<Subject> getSubjects() {
+		return subjects;
+	}
+	public void setSubjects(List<Subject> subjects) {
+		this.subjects = subjects;
 	}
 }
