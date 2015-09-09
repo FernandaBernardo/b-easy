@@ -26,8 +26,8 @@ public class SubjectDao {
 	}
 	
 	public List<Subject> getAllSubjectsFromUser(User user) {
-		List<Subject> subjects = (List<Subject>)session.createQuery("from Subject s where s.user_id=:user_id")
-				.setLong("user_id", user.getId());
+		List<Subject> subjects = (List<Subject>)session.createQuery("from Subject s where s.user_email=:user_email")
+				.setString("user_email", user.getEmail());
 		return subjects;
 	}
 	

@@ -28,8 +28,8 @@ public class TaskDao {
 	}
 	
 	public List<Task> getAllTasksFromUser(User user) {
-		List<Task> tasks = (List<Task>) session.createQuery("from Subject s, Task t where s.user_id = :user_id "
-				+ "and t.subject_id = s.id").setLong("user_id", user.getId());
+		List<Task> tasks = (List<Task>) session.createQuery("from Subject s, Task t where s.user_email = :user_email "
+				+ "and t.subject_id = s.id").setString("user_email", user.getEmail());
 		return tasks;
 	}
 

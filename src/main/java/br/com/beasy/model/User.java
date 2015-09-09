@@ -3,30 +3,22 @@ package br.com.beasy.model;
 import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class User {
-	@Id @GeneratedValue
-	private Long id;
-	private String name;
-	private int age;
+	@Id
 	private String email;
 	private String password;
+	private String name;
+	private int age;
 	private String college;
 	private int semester;
 	private String course;
 	@OneToMany
 	private List<Subject> subjects;
 	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}
