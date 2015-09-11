@@ -10,3 +10,9 @@
 <title>B-easy</title>
 </head>
 <body>
+
+<nav>
+	<a href="<c:url value="/login" />">Login</a>
+	<a href="<c:url value="/cadastro"/>">Cadastro</a>
+	<a href="<c:url value="/dashboard" />">Dashboard</a>
+</nav>
