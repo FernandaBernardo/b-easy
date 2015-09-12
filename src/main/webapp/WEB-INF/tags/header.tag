@@ -7,12 +7,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/home.css">
+<link href="//fonts.googleapis.com/css?family=Lato:100,300,100italic,300italic,700italic,700" rel="stylesheet" type="text/css">
 <title>B-easy</title>
 </head>
 <body>
 
-<nav>
-	<a href="<c:url value="/login" />">Login</a>
-	<a href="<c:url value="/cadastro"/>">Cadastro</a>
-	<a href="<c:url value="/dashboard" />">Dashboard</a>
-</nav>
+<header>
+	<h1 class="logo" ><a href="<c:url value="/" />" /><img src="img/logo.png" width="80px" height="70px"></a></h1><!--  
+	
+	--><nav class="menu">
+		<ul>
+			<li><a href="<c:url value="/" />">Sobre</a></li>		
+			<li><a href="<c:url value="/login" />">Login</a></li>
+			<li><a href="<c:url value="/" />">Contato</a></li>
+		</ul>
+	</nav>
+</header>
