@@ -3,9 +3,11 @@ package br.com.beasy.model;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 @SessionScoped
-public class WebUser implements Serializable{
+@Named("loggedUser")
+public class LoggedUser implements Serializable{
 	private User logged;
 	
 	public void login(User user) {
@@ -14,6 +16,10 @@ public class WebUser implements Serializable{
 	
 	public String getName() {
 		return logged.getName();
+	}
+	
+	public User getUser() {
+		return logged;
 	}
 	
 	public boolean isLogged() {

@@ -22,11 +22,19 @@
 	
 	--><nav class="menu">
 		<ul>
-			<li><a href="<c:url value="/" />">Sobre</a></li>
-			<c:if test="${empty user}">		
-				<li><a href="<c:url value="/login" />">Login</a></li>
+			<c:if test="${not empty loggedUser.user}">
+				<li>${loggedUser.getName()}</li>
 			</c:if>
+			<li><a href="<c:url value="/" />">Sobre</a></li>
 			<li><a href="<c:url value="/" />">Contato</a></li>
+			<c:choose>
+				<c:when test="${empty loggedUser.user}">
+					<li><a href="<c:url value="/login" />">Entrar</a></li>
+				</c:when>
+				<c:otherwise>
+					<li><a href="<c:url value="/logout" />">Sair</a></li>
+				</c:otherwise>
+			</c:choose>
 		</ul>
 	</nav>
 </header>

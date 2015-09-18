@@ -1,5 +1,5 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags"%>
 
 <tags:header/>
-${user.name}
+${loggedUser.name}
 <tags:footer/>

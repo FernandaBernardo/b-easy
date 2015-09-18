@@ -4,7 +4,7 @@ import javax.inject.Inject;
 
 import br.com.beasy.dao.UserDao;
 import br.com.beasy.model.User;
-import br.com.beasy.model.WebUser;
+import br.com.beasy.model.LoggedUser;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
@@ -14,7 +14,7 @@ import br.com.caelum.vraptor.Result;
 public class LoginController {
 
 	@Inject private Result result;
-	@Inject private WebUser webUser;
+	@Inject private LoggedUser loggedUser;
 	@Inject private UserDao dao;
 
 	@Get("/login")
@@ -27,7 +27,7 @@ public class LoginController {
 		if(loadUser == null) {
 			result.include("validate", "Login e/ou senha inválidos");
 		} else {
-			webUser.login(loadUser);
+			loggedUser.login(loadUser);
 			result.redirectTo(DashboardController.class).dashboard();
 		}
 	}
@@ -47,6 +47,7 @@ public class LoginController {
 
 	@Get("/logout")
 	public void logout() {
-		webUser.logout();
+		loggedUser.logout();
+		result.redirectTo(HomeController.class).home();
 	}
 }
