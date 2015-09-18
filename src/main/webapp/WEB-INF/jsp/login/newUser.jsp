@@ -3,15 +3,26 @@
 
 <tags:header/>
 
-<form id="usuariosForm" action="<c:url value="/cadastro"/>" method="POST">
-	Nome: <input type="text" name="user.name">
-	E-mail: <input type="text" name="user.email">
-	Senha: <input type="password" name="user.password" id="senha">
-	Idade: <input type="text" name="user.age">
-	Faculdade/Colégio: <input type="text" name="user.college">
-	Curso: <input type="text" name="user.course">
-	Semestre: <input type="text" name="user.semester">
-	<input type="submit" value="Login">
-</form>
+<section class="highlight-section">
+	<h2>Registrar</h2>
+</section>
+
+<section class="half-container">
+	<img class="login-image" src="img/postit1.jpg">
+</section><!--  
+
+--><section class="half-container">
+	<form class="login-form" id="usuariosForm" action="<c:url value="/cadastro"/>" method="POST">
+		<input type="text" name="user.name" placeholder="Nome">
+		<input type="text" name="user.email" placeholder="E-mail">
+		<input type="password" name="user.password" placeholder="Senha">
+		<input type="text" name="user.age" placeholder="Idade">
+		<input type="text" name="user.college" placeholder="Faculdade/Colégio">
+		<input type="text" name="user.course" placeholder="Curso">
+		<input type="text" name="user.semester" placeholder="Semestre">
+		
+		<input type="submit" value="Registrar">
+	</form>
+</section>
 
 <tags:footer/>

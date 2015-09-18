@@ -27,8 +27,8 @@ public class LoginController {
 		if(loadUser == null) {
 			result.include("validate", "Login e/ou senha inválidos");
 		} else {
-			result.include("validate", "Usuário logado!");
 			webUser.login(loadUser);
+			result.redirectTo(DashboardController.class).dashboard();
 		}
 	}
 	

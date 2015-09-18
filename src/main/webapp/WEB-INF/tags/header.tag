@@ -9,6 +9,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/section.css">
 <link href="//fonts.googleapis.com/css?family=Lato:100,300,100italic,300italic,700italic,700" rel="stylesheet" type="text/css">
 <title>B-easy</title>
 </head>
@@ -19,8 +22,10 @@
 	
 	--><nav class="menu">
 		<ul>
-			<li><a href="<c:url value="/" />">Sobre</a></li>		
-			<li><a href="<c:url value="/login" />">Login</a></li>
+			<li><a href="<c:url value="/" />">Sobre</a></li>
+			<c:if test="${empty user}">		
+				<li><a href="<c:url value="/login" />">Login</a></li>
+			</c:if>
 			<li><a href="<c:url value="/" />">Contato</a></li>
 		</ul>
 	</nav>

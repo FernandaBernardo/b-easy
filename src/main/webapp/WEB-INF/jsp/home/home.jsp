@@ -9,7 +9,7 @@
 		<h3>Organize seus estudos!</h3>
 	</div><!--  
 	--><div class="sign-container">
-		<a href="<c:url value="/login"/>">Increva-se agora</a>
+		<a href="<c:url value="/cadastro"/>">Increva-se agora</a>
 	</div>
 </section>
 
