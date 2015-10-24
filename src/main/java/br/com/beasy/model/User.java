@@ -3,15 +3,19 @@ package br.com.beasy.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class User {
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private String email;
 	private String password;
 	private String name;
+	private String idFacebook;
 	private int age;
 	private String college;
 	private int semester;
@@ -66,5 +70,11 @@ public class User {
 	}
 	public void setSubjects(List<Subject> subjects) {
 		this.subjects = subjects;
+	}
+	public String getIdFacebook() {
+		return idFacebook;
+	}
+	public void setIdFacebook(String idFacebook) {
+		this.idFacebook = idFacebook;
 	}
 }
