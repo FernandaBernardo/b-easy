@@ -15,11 +15,12 @@ public class User {
 	private String email;
 	private String password;
 	private String name;
-	private String idFacebook;
+	private String facebookId;
 	private int age;
 	private String college;
 	private int semester;
 	private String course;
+	private UserType userType;
 	@OneToMany
 	private List<Subject> subjects;
 	
@@ -71,10 +72,16 @@ public class User {
 	public void setSubjects(List<Subject> subjects) {
 		this.subjects = subjects;
 	}
-	public String getIdFacebook() {
-		return idFacebook;
+	public String getFacebookId() {
+		return facebookId;
 	}
-	public void setIdFacebook(String idFacebook) {
-		this.idFacebook = idFacebook;
+	public void setFacebookId(String facebookId) {
+		this.facebookId = facebookId;
+	}
+	public UserType getLoginType() {
+		return userType;
+	}
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 }

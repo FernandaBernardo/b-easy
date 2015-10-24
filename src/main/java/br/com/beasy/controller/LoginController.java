@@ -18,17 +18,19 @@ import com.google.gson.JsonParser;
 import br.com.beasy.dao.UserDao;
 import br.com.beasy.model.LoggedUser;
 import br.com.beasy.model.User;
+import br.com.beasy.model.UserType;
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.environment.Environment;
 
 @Controller
 public class LoginController {
-
 	@Inject private Result result;
 	@Inject private LoggedUser loggedUser;
 	@Inject private UserDao dao;
+	@Inject private Environment env;
 
 	@Get("/login")
 	public void login() {
@@ -36,7 +38,7 @@ public class LoginController {
 	
 	@Post("/login")
 	public void login(User user) {
-		User loadUser = dao.loadUser(user);
+		User loadUser = dao.loadNativeUser(user);
 		if(loadUser == null) {
 			result.include("validate", "Login e/ou senha inválidos");
 		} else {
@@ -54,6 +56,7 @@ public class LoginController {
 		if(dao.userExist(user)){
 			System.out.println("Login já existe!");
 		} else {
+			user.setUserType(UserType.NATIVE);
 			dao.addUser(user);
 		}
 	}
@@ -85,7 +88,8 @@ public class LoginController {
 	    User user = new User();
 		user.setName(name != null ? name.getAsString() : null);
 		user.setEmail(email != null ? email.getAsString() : null);
-		user.setIdFacebook(id != null ? id.getAsString() : null);
+		user.setFacebookId(id != null ? id.getAsString() : null);
+		user.setUserType(UserType.FACEBOOK);
 	    
 	    if(!dao.userExist(user)){
 	    	dao.addUser(user);
@@ -104,8 +108,8 @@ public class LoginController {
 	private OAuthService getOAuthService() {
 		return new ServiceBuilder()
 		.provider(FacebookApi.class)
-		.apiKey("1895578677334302")
-		.apiSecret("6919bdbd6b24ed8c8772bb40994e5ad7")
+		.apiKey(env.get("facebook.api.key"))
+		.apiSecret(env.get("facebook.api.secret"))
 		.callback("http://localhost:8080/b-easy/facebook/login")
 		.scope("email")
 		.build();
