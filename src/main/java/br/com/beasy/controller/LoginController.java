@@ -56,9 +56,9 @@ public class LoginController {
 		if(dao.userExist(user)){
 			System.out.println("Login já existe!");
 		} else {
-			user.setUserType(UserType.NATIVE);
 			dao.addUser(user);
 		}
+		result.redirectTo(DashboardController.class).dashboard();
 	}
 	
 	@Get("/facebook")

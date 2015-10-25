@@ -1,8 +1,9 @@
 package br.com.beasy.model;
 
+
 public enum UserType {
-	NATIVE(1), 
-	FACEBOOK(2);
+	NATIVE(0), 
+	FACEBOOK(1);
 	
 	private int type;
 	

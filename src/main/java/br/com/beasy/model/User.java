@@ -3,6 +3,8 @@ package br.com.beasy.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,7 +22,8 @@ public class User {
 	private String college;
 	private int semester;
 	private String course;
-	private UserType userType;
+	@Enumerated(EnumType.ORDINAL)
+	private UserType userType = UserType.NATIVE;
 	@OneToMany
 	private List<Subject> subjects;
 	
