@@ -13,6 +13,7 @@ public class Subject {
 	@Id @GeneratedValue
 	private Long id;
 	private String name;
+	private String color;
 	@ManyToOne
 	private User user;
 	@OneToMany

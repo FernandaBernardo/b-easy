@@ -3,19 +3,27 @@ package br.com.beasy.model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class User {
-	@Id
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private String email;
 	private String password;
 	private String name;
+	private String facebookId;
 	private int age;
 	private String college;
 	private int semester;
 	private String course;
+	@Enumerated(EnumType.ORDINAL)
+	private UserType userType = UserType.NATIVE;
 	@OneToMany
 	private List<Subject> subjects;
 	
@@ -66,5 +74,17 @@ public class User {
 	}
 	public void setSubjects(List<Subject> subjects) {
 		this.subjects = subjects;
+	}
+	public String getFacebookId() {
+		return facebookId;
+	}
+	public void setFacebookId(String facebookId) {
+		this.facebookId = facebookId;
+	}
+	public UserType getLoginType() {
+		return userType;
+	}
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 }

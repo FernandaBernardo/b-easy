@@ -7,14 +7,26 @@ import org.hibernate.criterion.Restrictions;
 
 import br.com.beasy.converter.PasswordConverter;
 import br.com.beasy.model.User;
+import br.com.beasy.model.UserType;
 
 public class UserDao {
-	@Inject private Session session;
+	private Session session;
+	
+	@Deprecated
+	public UserDao() {
+	}
+	
+	@Inject
+	public UserDao(Session session) {
+		this.session = session;
+	}
 	
 	public void addUser(User user) {
-		String password = user.getPassword();
-		String encryptPass = PasswordConverter.encrypt(password);
-		user.setPassword(encryptPass);
+		if (user.getLoginType() == UserType.NATIVE) {
+			String password = user.getPassword();
+			String encryptPass = PasswordConverter.encrypt(password);
+			user.setPassword(encryptPass);
+		}
 		
 		session.save(user);
 	}
@@ -30,7 +42,14 @@ public class UserDao {
 		return user;
 	}
 	
-	public User loadUser(User user) {
+	public User getUserByFacebookId(String facebookId) {
+		User user = (User) session.createQuery("from User u where u.facebookId=:facebookId")
+				.setString("facebookId", facebookId)
+				.uniqueResult();
+		return user;
+	}
+	
+	public User loadNativeUser(User user) {
 		String password = user.getPassword();
 		String encryptPass = PasswordConverter.encrypt(password);
 		user.setPassword(encryptPass);
@@ -41,9 +60,18 @@ public class UserDao {
 	}
 	
 	public boolean userExist(User user) {
-		User userFound = (User) session.createCriteria(User.class)
-				.add(Restrictions.eq("email", user.getEmail()))
-				.uniqueResult();
+		UserType loginType = user.getLoginType();
+		User userFound = null; 
+		
+		if(loginType == UserType.FACEBOOK) {
+			userFound = (User) session.createCriteria(User.class)
+					.add(Restrictions.eq("facebookId", user.getFacebookId()))
+					.uniqueResult();
+		} else {
+			userFound = (User) session.createCriteria(User.class)
+					.add(Restrictions.eq("email", user.getEmail()))
+					.uniqueResult();
+		}
 		return userFound != null;
 	}
 }

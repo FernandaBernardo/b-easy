@@ -10,6 +10,7 @@
 	</div><!--  
 	--><div class="sign-container">
 		<a href="<c:url value="/cadastro"/>">Increva-se agora</a>
+		<a href="<c:url value="/facebook"/>">Facebook</a>
 	</div>
 </section>
 
