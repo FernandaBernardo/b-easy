@@ -10,7 +10,16 @@ import br.com.beasy.model.User;
 import br.com.beasy.model.UserType;
 
 public class UserDao {
-	@Inject private Session session;
+	private Session session;
+	
+	@Deprecated
+	public UserDao() {
+	}
+	
+	@Inject
+	public UserDao(Session session) {
+		this.session = session;
+	}
 	
 	public void addUser(User user) {
 		if (user.getLoginType() == UserType.NATIVE) {
