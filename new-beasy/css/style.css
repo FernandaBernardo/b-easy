@@ -57,6 +57,10 @@ a:focus {
     font-weight: 400;
 }
 
+#menu{
+    padding: 1em;
+}
+
 .navbar {
     margin-bottom: 0;
     /*border-bottom: 1px solid rgba(255,255,255,.3);*/
@@ -82,7 +86,7 @@ a:focus {
 }
 
 .nav.navbar-nav {
-    background-color: rgba(255,255,255,.4);
+    background-color: rgba(255,255,255,.8);
 }
 
 .navbar-custom.top-nav-collapse .nav.navbar-nav {
@@ -141,13 +145,7 @@ a:focus {
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li.active {
     outline: 0;
-    background-color: rgba(255,255,255,.2);
-}
-.navbar-custom .nav li a:hover,
-.navbar-custom .nav li a:focus,
-.navbar-custom .nav li.active {
-    outline: 0;
-    background-color: rgba(255,255,255,.2);
+    background-color: rgba(255,255,255,.5);
 }
 
 .navbar-toggle {

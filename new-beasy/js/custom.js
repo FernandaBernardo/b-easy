@@ -2,7 +2,10 @@
 
 	new WOW().init();
 
-	jQuery(window).load(function() { 
+	//hide navbar icon at first
+	$(".navbar-brand").hide();
+
+	jQuery(window).load(function() {
 		jQuery("#preloader").delay(100).fadeOut("slow");
 		jQuery("#load").delay(100).fadeOut("slow");
 	});
@@ -12,8 +15,12 @@
 	$(window).scroll(function() {
 		if ($(".navbar").offset().top > 50) {
 			$(".navbar-fixed-top").addClass("top-nav-collapse");
+			//show navbar icon
+			$(".navbar-brand").show();
 		} else {
 			$(".navbar-fixed-top").removeClass("top-nav-collapse");
+			//hide navbar icon
+			$(".navbar-brand").hide();
 		}
 	});
 
