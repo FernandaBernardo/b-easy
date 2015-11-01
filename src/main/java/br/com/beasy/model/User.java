@@ -12,8 +12,7 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class User {
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	@Id
 	private String email;
 	private String password;
 	private String name;
