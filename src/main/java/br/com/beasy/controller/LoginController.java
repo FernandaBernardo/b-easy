@@ -47,6 +47,19 @@ public class LoginController {
 		} else {
 			dao.addUser(user);
 		}
+		loggedUser.login(user);
+		result.redirectTo(DashboardController.class).dashboard();
+	}
+	
+	@Get("/cadastro-facebook")
+	public void newUserFacebook(User user) {
+		result.include("user", user);
+	}
+	
+	@Post("/cadastro-facebook")
+	public void loginFacebook(User user) {
+		dao.addUser(user);
+		loggedUser.login(user);
 		result.redirectTo(DashboardController.class).dashboard();
 	}
 	
@@ -58,17 +71,20 @@ public class LoginController {
 	}
 	
 	@Get("/facebook/login")
-	public void login(String code) {
+	public void loginFacebook(String code) {
 		FacebookAPI facebookApi = new FacebookAPI(env);
 		facebookApi.getOAuthService();
 		facebookApi.getAccessToken(code);
 		
-		Response response = facebookApi.makeRequest("https://graph.facebook.com/me?fields=email,name,id");
+		Response response = facebookApi.makeRequest("https://graph.facebook.com/me?fields=email,name,id,picture");
 		
 	    User user = facebookApi.getUserFromFacebookJson(response.getBody());
 	    if(!dao.userExist(user)){
-	    	dao.addUser(user);
-		} 
+	    	result.redirectTo(LoginController.class).newUserFacebook(user);
+	    	return;
+		} else {
+			dao.mergeAndUpdateUser(user);
+		}
 	    
 	    loggedUser.login(user);
 	    result.redirectTo(DashboardController.class).dashboard();

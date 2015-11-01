@@ -5,8 +5,6 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -21,6 +19,7 @@ public class User {
 	private String college;
 	private int semester;
 	private String course;
+	private String pictureUrl;
 	@Enumerated(EnumType.ORDINAL)
 	private UserType userType = UserType.NATIVE;
 	@OneToMany
@@ -85,5 +84,11 @@ public class User {
 	}
 	public void setUserType(UserType userType) {
 		this.userType = userType;
+	}
+	public String getPictureUrl() {
+		return pictureUrl;
+	}
+	public void setPictureUrl(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 }
