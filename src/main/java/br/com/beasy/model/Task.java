@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -17,7 +19,8 @@ public class Task {
 	private String description;
 	private String relevance;
 	private Date finalDate;
-	private String status;
+	@Enumerated(EnumType.ORDINAL)
+	private Status status;
 	@ManyToOne
 	private Subject subject;
 	@OneToMany
@@ -53,10 +56,10 @@ public class Task {
 	public void setFinalDate(Date finalDate) {
 		this.finalDate = finalDate;
 	}
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	public Subject getSubject() {

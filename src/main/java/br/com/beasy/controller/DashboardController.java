@@ -22,11 +22,8 @@ public class DashboardController {
 	@Get("/dashboard")
 	@AuthenticationRequired
 	public void dashboard() {
-	}
-
-	@Get("/nova-materia")
-	@AuthenticationRequired
-	public void newSubject() {
+		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(loggedUser.getUser());
+		loggedUser.getUser().setSubjects(subjects);
 	}
 
 	@Post("/nova-materia")
@@ -35,12 +32,5 @@ public class DashboardController {
 		subject.setUser(loggedUser.getUser());
 		subjectDao.addSubject(subject);
 		result.redirectTo(DashboardController.class).dashboard();
-	}
-
-	@Get("/lista-materias")
-	@AuthenticationRequired
-	public void listSubjects() {
-		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(loggedUser.getUser());
-		result.include("subjects", subjects);
 	}
 }

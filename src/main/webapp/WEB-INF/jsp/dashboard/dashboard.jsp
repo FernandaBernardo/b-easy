@@ -1,6 +1,8 @@
 <%@ taglib prefix="tags" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:set var="user" value="${loggedUser.user}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,7 +66,7 @@
 		<div class="navbar-fixed">
 			<nav class="beasy-blue">
 				<div class="nav-wrapper">
-					<a href="dashboard.html" class="brand-logo center"> 
+					<a href='<c:url value='/dashboard' />' class="brand-logo center"> 
 						<img src="img/logo_branco.png" alt="materialize logo">
 					</a>
 					<ul class="right hide-on-med-and-down">
@@ -89,7 +91,7 @@
 					<li class="user-details beasy-blue darken-2" style="padding: 23px 0 0; height: 86px;">
 						<div class="row">
 							<div class="col col s12 m12 l12">
-								<img src="img/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+								<img src="${user.pictureUrl}" alt="" class="circle responsive-img valign profile-image">
 							</div>
 						</div>
 					</li>
@@ -129,11 +131,11 @@
 					<li class="user-details beasy-blue darken-2">
 						<div class="row">
 							<div class="col col s4 m4 l4">
-								<img src="img/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+								<img src="${user.pictureUrl}" alt="" class="circle responsive-img valign profile-image">
 							</div>
 							<div class="col col s8 m8 l8">
 
-								<a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"> Alexandre <i class="fa fa-caret-down"></i></a>
+								<a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"> ${user.name} <i class="fa fa-caret-down"></i></a>
 								<ul id="profile-dropdown" class="dropdown-content">
 									<li><a href="#"><i class="fa fa-cog"></i> Config</a></li>
 									<li><a href="#"><i class="fa fa-question"></i> Ajuda</a></li>
@@ -149,10 +151,9 @@
 							<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-folder"></i> Matérias</a>
 								<div class="collapsible-body">
 									<ul>
-										<li><a href="#">PISI</a></li>
-										<li><a href="#">Administracao</a></li>
-										<li><a href="#">Inteligencia Artificial</a></li>
-										<li><a href="#">Empreendedorismo</a></li>
+										<c:forEach items="${user.subjects}" var="subject">
+											<li><a href="#">${subject.name}</a></li>
+										</c:forEach>
 									</ul>
 								</div>
 							</li>
@@ -197,74 +198,25 @@
 											</div>
 										</div>
 									</li>
-									<li class="collection-item">
-										<div class="row">
-											<div class="col s1">
-												<span class="task-cat cyan">
-													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-												</span>
-											</div>
-											<div class="col s7">
-												<p class="collections-title">Projeto Integrado de Sistemas de Informacao</p>
-											</div>
-											<div class="col s4 tooltipped" data-position="top" data-delay="50" data-tooltip="77%">
-												<div class="progress">
-													<div class="determinate" style="width: 77%"></div>
+									<c:forEach items="${user.subjects}" var="subject">
+										<li class="collection-item">
+											<div class="row">
+												<div class="col s1">
+													<span class="task-cat" style="background-color: ${subject.color}">
+														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													</span>
+												</div>
+												<div class="col s7">
+													<p class="collections-title">${subject.name}</p>
+												</div>
+												<div class="col s4 tooltipped" data-position="top" data-delay="50" data-tooltip="${subject.progress}%">
+													<div class="progress">
+														<div class="determinate" style="width: ${subject.progress}%"></div>
+													</div>
 												</div>
 											</div>
-										</div>
-									</li>
-									<li class="collection-item">
-										<div class="row">
-											<div class="col s1">
-												<span class="task-cat purple">
-													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-												</span>
-											</div>
-											<div class="col s7">
-												<p class="collections-title">Administracao de Empresas</p>
-											</div>
-											<div class="col s4 tooltipped" data-position="top" data-delay="50" data-tooltip="55%">
-												<div class="progress">
-													<div class="determinate" style="width: 55%"></div>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="collection-item">
-										<div class="row">
-											<div class="col s1">
-												<span class="task-cat pink">
-													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-												</span>
-											</div>
-											<div class="col s7">
-												<p class="collections-title">Inteligencia Artificial</p>
-											</div>
-											<div class="col s4 tooltipped" data-position="top" data-delay="50" data-tooltip="96%">
-												<div class="progress">
-													<div class="determinate" style="width: 96%"></div>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li class="collection-item">
-										<div class="row">
-											<div class="col s1">
-												<span class="task-cat teal">
-													&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-												</span>
-											</div>
-											<div class="col s7">
-												<p class="collections-title">Empreendedorismo</p>
-											</div>
-											<div class="col s4 tooltipped" data-position="top" data-delay="50" data-tooltip="24%">
-												<div class="progress">
-													<div class="determinate" style="width: 24%"></div>
-												</div>
-											</div>
-										</div>
-									</li>
+										</li>
+									</c:forEach>
 								</ul>
 							</div>
 							<div class="col s12 m12 l5">
@@ -395,31 +347,19 @@
 				<!--end container-->
 
 				<!-- modals com adição de materias e tarefas -->
-				<div id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+				<form action="<c:url value='/nova-materia'/>" method="post" id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma matéria</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum</p>
+							Nome:
+							<input type="text" name="subject.name">
+							Cor:
+							<input type="color" name="subject.color">
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+						<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">
 					</div>
-				</div>
+				</form>
 				<div id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma tarefa</h4>

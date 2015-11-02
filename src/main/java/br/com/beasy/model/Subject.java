@@ -22,6 +22,19 @@ public class Subject {
 	@OneToMany
 	private List<Task> tasks;
 	
+	public int getProgress(){
+		int progress = 0;
+		int total = tasks.size() == 0 ? 1 : tasks.size();
+		
+		for (Task task : tasks) {
+			if(task.getStatus().equals(Status.DONE)) {
+				progress++;
+			}
+		}
+		
+		return progress/total;
+	}
+	
 	public Long getId() {
 		return id;
 	}

@@ -44,20 +44,19 @@ public class LoginController {
 	public void newUser(User user) {
 		if(dao.userExist(user)){
 			System.out.println("Login já existe!");
+			result.forwardTo(LoginController.class).newUser();
 		} else {
-			dao.addUser(user);
+			result.redirectTo(LoginController.class).moreInformation(user);;
 		}
-		loggedUser.login(user);
-		result.redirectTo(DashboardController.class).dashboard();
 	}
 	
-	@Get("/cadastro-facebook")
-	public void newUserFacebook(User user) {
+	@Get("/cadastro-mais")
+	public void moreInformation(User user) {
 		result.include("user", user);
 	}
 	
-	@Post("/cadastro-facebook")
-	public void loginFacebook(User user) {
+	@Post("/cadastro-mais")
+	public void saveMoreInformation(User user) {
 		dao.addUser(user);
 		loggedUser.login(user);
 		result.redirectTo(DashboardController.class).dashboard();
@@ -80,14 +79,12 @@ public class LoginController {
 		
 	    User user = facebookApi.getUserFromFacebookJson(response.getBody());
 	    if(!dao.userExist(user)){
-	    	result.redirectTo(LoginController.class).newUserFacebook(user);
-	    	return;
+	    	result.redirectTo(LoginController.class).moreInformation(user);
 		} else {
 			dao.mergeAndUpdateUser(user);
+			loggedUser.login(user);
+			result.redirectTo(DashboardController.class).dashboard();
 		}
-	    
-	    loggedUser.login(user);
-	    result.redirectTo(DashboardController.class).dashboard();
 	}
 	
 	@Get("/logout")

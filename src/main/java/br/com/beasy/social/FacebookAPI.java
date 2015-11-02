@@ -31,7 +31,7 @@ public class FacebookAPI {
 		.provider(FacebookApi.class)
 		.apiKey(env.get("facebook.api.key"))
 		.apiSecret(env.get("facebook.api.secret"))
-		.callback("http://localhost:8080/b-easy/facebook/login")
+		.callback(env.get("facebook.callback"))
 		.scope("email")
 		.build();
 		
