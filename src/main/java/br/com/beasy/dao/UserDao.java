@@ -31,10 +31,6 @@ public class UserDao {
 		session.save(user);
 	}
 	
-	public void updateUser(User user) {
-		session.update(user);
-	}
-	
 	public User getUserByEmail(String email) {
 		User user = (User) session.createQuery("from User u where u.email=:email")
 				.setString("email", email)
@@ -73,5 +69,10 @@ public class UserDao {
 					.uniqueResult();
 		}
 		return userFound != null;
+	}
+
+	public void mergeAndUpdateUser(User user) {
+		User newUser = (User) session.merge(user);
+		session.update(newUser);
 	}
 }

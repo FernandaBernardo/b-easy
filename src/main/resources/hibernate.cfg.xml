@@ -5,13 +5,19 @@
 
 <hibernate-configuration>
 	<session-factory>
-<!-- 		<property name="hibernate.connection.username">b8299488e1d3de</property> -->
-<!-- 		<property name="hibernate.connection.password">a2ed15d4</property> -->
-<!-- 		<property name="hibernate.connection.url">jdbc:mysql://us-cdbr-iron-east-02.cleardb.net/heroku_6650a0bc62aea42?reconnect=true</property> -->
+		<property name="hibernate.connection.username">b8299488e1d3de</property>
+		<property name="hibernate.connection.password">a2ed15d4</property>
+		<property name="hibernate.connection.url">jdbc:mysql://us-cdbr-iron-east-02.cleardb.net/heroku_6650a0bc62aea42?reconnect=true</property>
 		
+<<<<<<< HEAD
  		<property name="connection.url">jdbc:mysql://localhost:8889/b-easy</property> 
 		<property name="connection.username">root</property> 
  		<property name="connection.password">root</property> 
+=======
+<!--  		<property name="connection.url">jdbc:mysql://localhost/b-easy</property>  -->
+<!-- 		<property name="connection.username">root</property>  -->
+<!--  		<property name="connection.password"></property>  -->
+>>>>>>> c6e8ed9e16c3205bf62402fbd34914b4dbf116bb
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 
@@ -19,6 +25,12 @@
 
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
+
+		<property name="c3p0.acquire_increment">5</property>
+		<property name="c3p0.idle_test_period">100</property>
+		<property name="c3p0.max_size">120</property>
+		<property name="c3p0.min_size">10</property>
+		<property name="c3p0.timeout">1800</property>
 		
 		<!-- Entities -->
 		<mapping class="br.com.beasy.model.User"/>

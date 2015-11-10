@@ -3,15 +3,11 @@ package br.com.beasy.dao;
 import static org.junit.Assert.assertEquals;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.beasy.converter.PasswordConverter;
-import br.com.beasy.model.SubTask;
-import br.com.beasy.model.Subject;
-import br.com.beasy.model.Task;
 import br.com.beasy.model.User;
 import br.com.beasy.model.UserType;
 
@@ -55,7 +51,7 @@ public class UserDaoTest {
 	private void addUser() {
 		defaultUser = new User();
 		defaultUser.setEmail(EMAIL);
-		defaultUser.setPassword(PasswordConverter.encrypt(PASSWORD));
+		defaultUser.setPassword(PASSWORD);
 		defaultUser.setUserType(UserType.NATIVE);
 		defaultUser.setAge(21);
 		defaultUser.setCourse("Sistemas de Informação");
@@ -68,19 +64,16 @@ public class UserDaoTest {
 
 	//TODO arrumar esse método
 	private void createConnection() {
-		AnnotationConfiguration configuration = new AnnotationConfiguration();
-		configuration.addAnnotatedClass(User.class)
-					.addAnnotatedClass(Subject.class)
-		  			.addAnnotatedClass(Task.class)
-		  			.addAnnotatedClass(SubTask.class);
-		  configuration.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		  configuration.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
-		  configuration.setProperty("hibernate.connection.url", "jdbc:mysql://localhost/b-easy");
-		  configuration.setProperty("hibernate.connection.username", "root");
-		  configuration.setProperty("hibernate.connection.password", "");
-		  configuration.setProperty("hibernate.hbm2ddl.auto", "update");
-		  
-		  SessionFactory sessionFactory = configuration.buildSessionFactory();
-		  this.session = sessionFactory.openSession();
+		AnnotationConfiguration cfg = new AnnotationConfiguration();
+		cfg.configure().setProperty("hibernate.connection.url", "jdbc:mysql://localhost/b-easy");
+		this.session = cfg.buildSessionFactory().openSession();
+		session.beginTransaction();
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+		if (session != null && session.getTransaction().isActive()) {
+			session.getTransaction().rollback();
+		}
 	}
 }

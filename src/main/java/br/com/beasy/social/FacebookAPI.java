@@ -9,13 +9,13 @@ import org.scribe.model.Verb;
 import org.scribe.model.Verifier;
 import org.scribe.oauth.OAuthService;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
 import br.com.beasy.model.User;
 import br.com.beasy.model.UserType;
 import br.com.caelum.vraptor.environment.Environment;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class FacebookAPI {
 	private Token accessToken;
@@ -31,7 +31,7 @@ public class FacebookAPI {
 		.provider(FacebookApi.class)
 		.apiKey(env.get("facebook.api.key"))
 		.apiSecret(env.get("facebook.api.secret"))
-		.callback("http://localhost:8080/b-easy/facebook/login")
+		.callback(env.get("facebook.callback"))
 		.scope("email")
 		.build();
 		
@@ -57,12 +57,14 @@ public class FacebookAPI {
 	    JsonElement id = jsonObject.get("id");
 	    JsonElement name = jsonObject.get("name");
 	    JsonElement email = jsonObject.get("email");
+	    JsonElement picture = jsonObject.getAsJsonObject("picture").getAsJsonObject("data").get("url");
 	    
 	    User user = new User();
 		user.setName(name != null ? name.getAsString() : null);
 		user.setEmail(email != null ? email.getAsString() : null);
 		user.setFacebookId(id != null ? id.getAsString() : null);
 		user.setUserType(UserType.FACEBOOK);
+		user.setPictureUrl(picture.getAsString());
 		
 		return user;
 	}
