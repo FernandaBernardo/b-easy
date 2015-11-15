@@ -27,6 +27,9 @@ public class DashboardController {
 	public void dashboard() {
 		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(loggedUser.getUser());
 		loggedUser.getUser().setSubjects(subjects);
+		
+		List<Task> nextTasks = taskDao.getNextTasks();
+		result.include("nextTasks", nextTasks);
 	}
 
 	@Post("/nova-materia")

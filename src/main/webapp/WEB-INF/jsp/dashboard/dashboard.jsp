@@ -233,27 +233,15 @@
 											</div>
 										</div>
 									</li>
-									<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-										<input type="checkbox" id="task1"> 
-										<label for="task1" style="text-decoration: none;"> Criação Canvas<a href="#" class="secondary-content">
-											<span class="ultra-small alert">Ontem</span></a>
-										</label> 
-										<span class="task-cat teal">Empreendedorismo</span>
-									</li>
-									<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-										<input type="checkbox" id="task2"> 
-										<label for="task2" style="text-decoration: none;"> Trabalho Escrito: Riscos 
-											<a href="#" class="secondary-content"><span class="ultra-small">26 de outubro</span></a>
-										</label> 
-										<span class="task-cat purple">Administração de Empresas</span>
-									</li>
-									<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-										<input type="checkbox" id="task3"> 
-										<label for="task3"> 2a Apresentação Parcial 
-											<a href="#" class="secondary-content"><span class="ultra-small">27 de outubro</span></a>
-										</label> 
-										<span class="task-cat cyan">Projeto Integrado de Sistemas de Informação</span>
-									</li>
+									<c:forEach items="${nextTasks}" var="task" varStatus="index">
+										<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+											<input type="checkbox" id="task${index.count}"> 
+											<label for="task${index.count}" style="text-decoration: none;">${task.title}<a href="#" class="secondary-content">
+												<span class="ultra-small alert">${task.finalDate}</span></a>
+											</label> 
+											<span class="task-catl" style="background-color: ${task.subject.color}">${task.subject.name}</span>
+										</li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
