@@ -7,6 +7,7 @@
 		<input type="text" name="user.email" placeholder="E-mail" value="${user.email}">
 		<input type="hidden" name="user.facebookId" value="${user.facebookId}">
 		<input type="hidden" name="user.picture" value="${user.pictureUrl}">
+		<input type="hidden" name="user.password" value="${user.password}">
 		<input type="text" name="user.age" placeholder="Idade" value="${user.age}">
 		<input type="text" name="user.college" placeholder="Faculdade/Colégio" value="${user.college}">
 		<input type="text" name="user.course" placeholder="Curso" value="${user.course}">
