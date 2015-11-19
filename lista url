@@ -1,0 +1,41 @@
+CADASTRO E LOGIN:
+	login 
+		parâmetro: email e senha
+		retorna user
+		curl -v -H "Content-Type: application/json" -X POST -d '{"email":"fernanda@gmail.com", "password": "123"}' http://b-easy.herokuapp.com/mobile/login/
+	loginFacebook 
+		parâmetro: facebookId
+		retorna user
+		curl -v -H "Content-Type: application/json" -X POST -d '{"facebookId":"id-do-facebook"}' http://b-easy.herokuapp.com/mobile/login-facebook/
+
+MATERIA
+	cadastro
+		parametro: tudo, emailUser
+		retorna success
+		curl -v -H "Content-Type: application/json" -X POST -d '{"subject": {"name":"testando", "color":"#0f0", "user":{"email":"fernanda@gmail.com"}}}' http://localhost:8080/mobile/add-subject/
+	editar
+		parametro: tudo, emailUser
+		retorna success
+		curl -v -H "Content-Type: application/json" -X POST -d '{"subject": {"id":"7","name":"mudei-testando", "color":"#0f0", "user":{"email":"fernanda@gmail.com"}}}' http://localhost:8080/mobile/edit-subject/
+	remover
+		parametro: id
+		retorna success
+		curl -v -H "Content-Type: application/json" -X POST -d '{"subject": {"id":"7"}}' http://localhost:8080/mobile/remove-subject/
+	get
+		parametro: emailUser
+		retorna list<subject>
+		curl -v -H "Content-Type: application/json" -X POST -d '{"email":"fernanda@gmail.com"}' http://localhost:8080/mobile/get-subjects/
+
+TAREFA
+	cadastro
+		parametro: tudo, idSubject
+		retorna success
+	editar
+		parametro: tudo, idSubject
+		retorna success
+	remover
+		parametro: id
+		retorna success
+	get
+		parametro: idSubject
+		retorna list<task>
