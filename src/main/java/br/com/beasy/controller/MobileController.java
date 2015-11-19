@@ -25,8 +25,9 @@ public class MobileController {
 		user.setPassword(password);
 		
 		user = userDao.loadNativeUser(user);
-		
+
 		result.use(Results.json()).from(user).serialize();
+		result.nothing();
 	}
 	
 }
