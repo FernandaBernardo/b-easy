@@ -21,7 +21,9 @@ public class SubjectDao {
 	}
 	
 	public Subject getSubjectByName(String name) {
-		Subject subject = (Subject) session.createQuery("from Subject s where s.name=:name").setString("name", name);
+		Subject subject = (Subject) session.createQuery("from Subject s where s.name=:name")
+				.setString("name", name)
+				.uniqueResult();
 		return subject;
 	}
 	

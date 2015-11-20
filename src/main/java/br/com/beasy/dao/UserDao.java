@@ -39,10 +39,9 @@ public class UserDao {
 	}
 	
 	public User getUserByFacebookId(String facebookId) {
-		User user = (User) session.createQuery("from User u where u.facebookId=:facebookId")
-				.setString("facebookId", facebookId)
+		return (User) session.createCriteria(User.class)
+				.add(Restrictions.eq("facebookId", facebookId))
 				.uniqueResult();
-		return user;
 	}
 	
 	public User loadNativeUser(User user) {

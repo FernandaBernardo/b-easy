@@ -6,12 +6,14 @@ import javax.inject.Inject;
 
 import org.hibernate.Session;
 
+import br.com.beasy.model.LoggedUser;
 import br.com.beasy.model.Subject;
 import br.com.beasy.model.Task;
 import br.com.beasy.model.User;
 
 public class TaskDao {
 	@Inject private Session session;
+	@Inject private LoggedUser loggedUser;
 	
 	public void addTask(Task task) {
 		session.save(task);
@@ -35,5 +37,17 @@ public class TaskDao {
 
 	public void deleteTask(Task task) {
 		session.delete(task);
+	}
+
+	public List<Task> getNextTasks() {
+		List<Task> nextTasks = (List<Task>) session.createQuery
+				("select t "
+				+ "from Task t, Subject s, User u "
+				+ "where t.subject.id = s.id "
+				+ "and s.user.email = u.email "
+				+ "and s.user.email = :user_email")
+				.setString("user_email", loggedUser.getUser().getEmail())
+				.list();
+		return nextTasks;
 	}
 }

@@ -207,7 +207,7 @@
 													</span>
 												</div>
 												<div class="col s7">
-													<p class="collections-title">${subject.name}</p>
+													<a href='<c:url value="/${subject.id}/tarefas"/>' class="collections-title">${subject.name}</a>
 												</div>
 												<div class="col s4 tooltipped" data-position="top" data-delay="50" data-tooltip="${subject.progress}%">
 													<div class="progress">
@@ -233,27 +233,15 @@
 											</div>
 										</div>
 									</li>
-									<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-										<input type="checkbox" id="task1"> 
-										<label for="task1" style="text-decoration: none;"> Criação Canvas<a href="#" class="secondary-content">
-											<span class="ultra-small alert">Ontem</span></a>
-										</label> 
-										<span class="task-cat teal">Empreendedorismo</span>
-									</li>
-									<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-										<input type="checkbox" id="task2"> 
-										<label for="task2" style="text-decoration: none;"> Trabalho Escrito: Riscos 
-											<a href="#" class="secondary-content"><span class="ultra-small">26 de outubro</span></a>
-										</label> 
-										<span class="task-cat purple">Administração de Empresas</span>
-									</li>
-									<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-										<input type="checkbox" id="task3"> 
-										<label for="task3"> 2a Apresentação Parcial 
-											<a href="#" class="secondary-content"><span class="ultra-small">27 de outubro</span></a>
-										</label> 
-										<span class="task-cat cyan">Projeto Integrado de Sistemas de Informação</span>
-									</li>
+									<c:forEach items="${nextTasks}" var="task" varStatus="index">
+										<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+											<input type="checkbox" id="task${index.count}"> 
+											<label for="task${index.count}" style="text-decoration: none;">${task.title}<a href="#" class="secondary-content">
+												<span class="ultra-small alert">${task.finalDate}</span></a>
+											</label> 
+											<span class="task-catl" style="background-color: ${task.subject.color}">${task.subject.name}</span>
+										</li>
+									</c:forEach>
 								</ul>
 							</div>
 						</div>
@@ -360,31 +348,25 @@
 						<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">
 					</div>
 				</form>
-				<div id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+				<form action='<c:url value='/nova-tarefa'/>' method="post" id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma tarefa</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-							sed do eiusmod tempor incididunt ut labore et dolore magna
-							aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-							ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-							aute irure dolor in reprehenderit in voluptate velit esse cillum
-							dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-							cupidatat non proident, sunt in culpa qui officia deserunt mollit
-							anim id est laborum</p>
+						Título
+						<input type="text" name="task.title">
+						Descrição
+						<input type="text" name="task.description">
+						<input list="subjects" name="task.subject.name" >
+						<datalist id="subjects">
+							<c:forEach items="${user.subjects}" var="subject">
+								<option value="${subject.name}">${subject.name}</option>
+							</c:forEach>
+						</datalist>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+						<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">
 					</div>
-				</div>
+				</form>
 			</section>
 			<!-- END CONTENT -->
 		</div>
