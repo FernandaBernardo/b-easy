@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.beasy.model.Subject;
 import br.com.beasy.model.User;
@@ -40,5 +41,11 @@ public class SubjectDao {
 	
 	public void deleteSubject(Subject subject) {
 		session.delete(subject);
+	}
+
+	public Subject getSubjectById(Long subjectId) {
+		return (Subject) session.createCriteria(Subject.class)
+				.add(Restrictions.eq("id", subjectId))
+				.uniqueResult();
 	}
 }

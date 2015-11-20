@@ -1,5 +1,6 @@
 package br.com.beasy.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -33,6 +34,30 @@ public class Subject {
 		}
 		
 		return progress/total;
+	}
+	
+	public List<Task> getToDoTasks() {
+		List<Task> toDo = new ArrayList<Task>();
+		for (Task task : tasks) {
+			if(Status.TODO.getType() == task.getStatus().getType()) toDo.add(task);
+		}
+		return toDo;
+	}
+	
+	public List<Task> getDoingTasks() {
+		List<Task> doing = new ArrayList<Task>();
+		for (Task task : tasks) {
+			if(Status.DOING.getType() == task.getStatus().getType()) doing.add(task);
+		}
+		return doing;
+	}
+
+	public List<Task> getDoneTasks() {
+		List<Task> done = new ArrayList<Task>();
+		for (Task task : tasks) {
+			if(Status.DONE.getType() == task.getStatus().getType()) done.add(task);
+		}
+		return done;
 	}
 	
 	public Long getId() {

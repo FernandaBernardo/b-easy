@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 import br.com.beasy.model.LoggedUser;
 import br.com.beasy.model.Subject;
@@ -24,9 +25,7 @@ public class TaskDao {
 	}
 	
 	public List<Task> getAllTasksFromSubject(Subject subject) {
-		List<Task> tasks = (List<Task>) session.createQuery("from Task t where t.subject_id=:subject_id")
-				.setLong("subject_id", subject.getId());
-		return tasks;
+		return (List<Task>) session.createCriteria(Task.class).add(Restrictions.eq("subject.id", subject.getId())).list(); 
 	}
 	
 	public List<Task> getAllTasksFromUser(User user) {
