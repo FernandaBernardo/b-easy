@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- roboto -->
+    <link type="text/css" rel="stylesheet" href="css/font.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>BEasy - Inteligencia Artificial</title>
+
+
+    <!-- CORE CSS-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="css/style-dash.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="css/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+
+    <style type="text/css">.task-content:hover{cursor:pointer;} .task-actions{padding-right: 10px; font-size: 0.8em; color: #666;} .action-forward:hover{color:green;} .action-backward:hover{color:red;} .task-action:hover{cursor: pointer;}  .jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
+</head>
+
+<body class="loaded">
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="beasy-blue">
+                <div class="nav-wrapper">
+
+                        <a href="dashboard.html" class="brand-logo center">
+                            <img src="img/logo_branco.png" alt="materialize logo">
+                        </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+
+            <!-- START LEFT SIDEBAR NAV-->
+            <aside id="left-sidebar-nav">
+                <!-- COMECO NAV FAKE-->
+                <ul  class="side-nav changeSide show-on-large-only fixed leftside-navigation ps-container ps-active-y" style="width: 60px;">
+                    <li class="user-details beasy-blue darken-2" style="padding: 23px 0 0;height: 86px;">
+                        <div class="row">
+                            <div class="col col s12 m12 l12">
+                                <img src="img/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="no-padding active">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-home"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-folder"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-hourglass-half"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="li-hover"><div class="divider"></div></li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-history"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Gambs pro menu lateral ficar sempre a mostra -->
+                    <div class="ps-scrollbar-x-rail">
+                        <div class="ps-scrollbar-x" ></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail">
+                        <div class="ps-scrollbar-y"></div>
+                    </div>
+                </ul>
+                <!-- FIM NAV FAKE-->
+
+                <ul id="slide-out" class="side-nav originalSide leftside-navigation ps-container ps-active-y" >
+                    <li class="user-details beasy-blue darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                                <img src="img/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                            <div class="col col s8 m8 l8">
+
+                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
+                                    Alexandre <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul id="profile-dropdown" class="dropdown-content">
+                                    <li>
+                                        <a href="#"><i class="fa fa-cog"></i> Config</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-question"></i> Ajuda</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bold active">
+                        <a href="#" class="waves-effect waves-cyan"><i class="fa fa-home"></i> Dashboard</a>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-folder"></i> Matérias</a>
+                                <div class="collapsible-body" style="">
+                                    <ul>
+                                        <li>
+                                            <a href="#">PISI</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Administracao</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Inteligencia Artificial</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Empreendedorismo</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a href="#" class="waves-effect waves-cyan"><i class="fa fa-hourglass-half"></i> Pomodoro <span class="new badge"></span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="li-hover"><div class="divider"></div></li>
+                    <li class="li-hover"><p class="ultra-small margin more-text">MAIS</p></li>
+                    <li>
+                        <a href="#"><i class="fa fa-history"></i> Histórico</a>
+                    </li>
+
+                    <!-- Gambs pro menu lateral ficar sempre a mostra -->
+                    <div class="ps-scrollbar-x-rail">
+                        <div class="ps-scrollbar-x" ></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail">
+                        <div class="ps-scrollbar-y"></div>
+                    </div>
+                </ul>
+                <!-- menu icon pra quando a tela for menor -->
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </aside>
+            <!-- END LEFT SIDEBAR NAV-->
+
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+            <!-- START CONTENT -->
+            <section id="content">
+
+                <!--start container-->
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col s12 m12 l12">
+                            <h4>
+                                <span class="task-cat pink" style="padding: 0 0;font-size: inherit;">&nbsp;</span>
+                                Inteligencia Artificial
+                                <i class="fa fa-times tooltipped" data-position="top" data-delay="30" data-tooltip="excluir" style="font-size: 0.5em"></i>
+                            </h4>
+
+                        </div>
+
+                    </div>
+                    <!--work collections start-->
+                    <div id="work-collections">
+                        <div class="row">
+                            <div class="col s12 m12 l4">
+
+                                <ul id="task-card" class="collection todo">
+                                    <li class="collection-item avatar"  style="padding-left: 20px;">
+                                        <div class="row">
+                                            <div class="col m1 l1">
+                                                <a href="#" class="beasy-green-color">
+                                                    <i class="fa fa-tasks fa-3x"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col m11 l11">
+                                                <span class="collection-header">TO-DO</span>
+                                                <p class="task-card-date" style="color: black; padding-left: 20px;">3 Tarefas</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item dismissable" style="height: 3.5em;">
+                                        <div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa">
+                                             Criação Canvas
+                                            <a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+                                        </div>
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item dismissable" style="height: 3.5em;">
+                                        <div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa">
+                                            EP II
+                                            <a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+                                        </div>
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col s12 m12 l4">
+
+                                <ul id="task-card" class="collection doing">
+                                    <li class="collection-item avatar"  style="padding-left: 20px;">
+                                        <div class="row">
+                                            <div class="col m1 l1">
+                                                <a href="#" class="beasy-green-color">
+                                                    <i class="fa fa-crosshairs fa-3x"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col m11 l11">
+                                                <span class="collection-header" style="padding: 20px">Doing</span>
+                                                <p class="task-card-date" style="color: black; padding-left: 20px;">2 Tarefas</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item dismissable" style="height: 3.5em;">
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-backward go-todo  fa fa-angle-left fa-2x"></i>
+                                        </div>
+                                        <div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa">
+                                            Criação Canvas
+                                            <a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+                                        </div>
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-forward go-done fa fa-angle-right fa-2x"></i>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item dismissable" style="height: 3.5em;">
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-backward go-todo fa fa-angle-left fa-2x"></i>
+                                        </div>
+                                        <div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa">
+                                            EP II
+                                            <a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+                                        </div>
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-forward go-done fa fa-angle-right fa-2x"></i>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col s12 m12 l4">
+
+                                <ul id="task-card" class="collection done">
+                                    <li class="collection-item avatar"  style="padding-left: 20px;">
+                                        <div class="row">
+                                            <div class="col m1 l1">
+                                                <a href="#" class="beasy-green-color">
+                                                    <i class="fa fa-check fa-3x"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col m11 l11">
+                                                <span class="collection-header">Done</span>
+                                                <p class="task-card-date" style="color: black; padding-left: 20px;">8 Tarefas</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="collection-item dismissable" style="height: 3.5em;">
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-backward go-doing  fa fa-angle-left fa-2x"></i>
+                                        </div>
+                                        <div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa" style="text-decoration: line-through;">
+                                            Criação Canvas
+                                            <a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+                                        </div>
+
+                                    </li>
+                                    <li class="collection-item dismissable" style="height: 3.5em;">
+                                        <div class="col m1">
+                                            <i style="line-height: inherit;" class="task-action action-backward go-doing fa fa-angle-left fa-2x"></i>
+                                        </div>
+                                        <div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa" style="text-decoration: line-through;">
+                                            EP II
+                                            <a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--work collections end-->
+
+                    <!-- Floating Action Button -->
+                    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                        <a class="btn-floating btn-large beasy-green">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#modal-tarefa" class="btn-floating red modal-trigger">
+                                    <i class="fa fa-check"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#modal-materia" class="btn-floating blue modal-trigger">
+                                    <i class="fa fa-folder"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+                    <!-- Floating Action Button -->
+                </div>
+                <!--end container-->
+
+                <!-- modals com adição de materias e tarefas -->
+                <div id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+                    <div class="modal-content">
+                        <h4>Adicione uma Matéria</h4>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="Cálculo" id="project_name" type="text" class="validate">
+                                    <label for="project_name" class="active">Matéria</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="project_comment" class="materialize-textarea"></textarea>
+                                    <label for="project_comment" class="">Descrição</label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+                    </div>
+                </div>
+                <div id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+                    <div class="modal-content">
+                        <h4>Adicione uma tarefa</h4>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s9">
+                                    <input placeholder="Pesquisar referências" id="task_name" type="text" class="validate">
+                                    <label for="task_name" class="active">Tarefa</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <!--<input type="date" class="datepicker">-->
+                                    <input placeholder="02/02/2016" id="task_date" type="text" class="validate">
+                                    <label for="task_date" class="active">Data</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col s9">
+                                      <label>Projeto</label>
+                                      <select class="browser-default">
+                                        <option value="" disabled="" selected="">Escolha um projeto</option>
+                                        <option value="1">Projeto Integrado de Sistemas de Informacao</option>
+                                        <option value="2">Administracao de Empresas</option>
+                                        <option value="3">Inteligencia Artificial</option>
+                                        <option value="4">Empreendedorismo</option>
+                                      </select>
+                                </div>
+                                <div class="col s3">
+                                      <label>Status</label>
+                                      <select class="browser-default">
+                                        <option value="" disabled="" selected="">----</option>
+                                        <option value="1">TO-DO</option>
+                                        <option value="2">DOING</option>
+                                        <option value="3">DONE</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="task_comment" class="materialize-textarea"></textarea>
+                                    <label for="task_comment" class="">Comentários</label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+                    </div>
+                </div>
+
+
+                <!-- modal para editar uma tarefa -->
+                <div id="modal-edit-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+                    <div class="modal-content">
+                        <h4>Edite a tarefa</h4>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s9">
+                                    <input  placeholder=" " id="task_edit_name" type="text" class="validate">
+                                    <label for="task_name" class="active">Tarefa</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <!--<input type="date" class="datepicker">-->
+                                    <input placeholder="02/02/2016" id="task_edit_date" type="text" class="validate">
+                                    <label for="task_date" class="active">Data</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col s9">
+                                      <label>Projeto</label>
+                                      <select class="browser-default" id="task_edit_project">
+                                        <option value="" selected="">Inteligencia Artificial</option>
+
+                                      </select>
+                                </div>
+                                <div class="col s3">
+                                      <label>Status</label>
+                                      <select class="browser-default" id="task_edit_status">
+
+                                        <option value="todo">TO-DO</option>
+                                        <option value="doing">DOING</option>
+                                        <option value="done">DONE</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="task_edit_comment" class="materialize-textarea"></textarea>
+                                    <label for="task_comment" class="">Comentários</label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar alterações</a>
+                    </div>
+                </div>
+
+            </div></section>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END WRAPPER -->
+
+    </div>
+    <!-- END MAIN -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START FOOTER -->
+    <footer id="footer" class="page-footer beasy-blue">
+        <div class="footer-copyright">
+            <div class="container">
+                Copyright © 2015 <a class="grey-text text-lighten-4" href="#" target="_blank">BEasy</a> All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+
+    <!-- ================================================
+    Scripts
+    ================================================ -->
+
+    <!-- jQuery Library -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <!--materialize js-->
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="js/footer_binder.js"></script>
+
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="js/plugins-dash.js"></script>
+
+    <!-- Toast Notification -->
+    <script type="text/javascript">
+        // Toast Notification
+        /*
+        $(window).load(function() {
+            setTimeout(function() {
+                Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
+            }, 1500);
+            setTimeout(function() {
+                Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
+            }, 15000);
+        });
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+        */
+        //preenche o modal de edição com os valores da task
+        $(".task-content").click(function(){
+            //console.log($(this));
+            $("#task_edit_name").val('TAREFA CERTA DEPOIS DE USAR O ID');
+
+            //TO DO pega o id da task e preenche comments/status/data/name
+        });
+
+
+
+        //funcao para mudar tarefas para frente
+        $(".action-forward").click(function(){
+            console.log('action forward..');
+
+            //construcao para doing
+            if($(this).hasClass('go-doing')){
+                //get task content
+                var task = $(this).parent().parent().children()[0].innerHTML;
+
+                //remove da lista atual
+                $(this).parent().parent().remove();
+
+
+                //constroi o que vai ser inserido
+                var html =  '<li class="collection-item dismissable" style="height: 3.5em;">'
+                                +'<div class="col m1">'
+                                    +'<i style="line-height: inherit;" class="task-action action-backward go-todo  fa fa-angle-left fa-2x"></i>'
+                                +'</div>'
+                                +'<div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa">'
+                                    +task
+                                +'</div>'
+                                +'<div class="col m1">'
+                                    +'<i style="line-height: inherit;" class="task-action action-forward go-done fa fa-angle-right fa-2x"></i>'
+                                +'</div>'
+                            +'</li>';
+
+                //console.log(html);
+                //adiciona a lista de doing
+                $(".doing").append(html);
+
+                Materialize.toast('<span>Tarefa marcada como DOING.</span>', 1500);
+                //TO-DO atualização do status
+
+
+                return;
+
+            }
+            //construcao para done
+            if($(this).hasClass('go-done')){
+                //get task content
+                var task = $(this).parent().parent().children()[1].innerHTML;
+
+                //remove da lista atual
+                $(this).parent().parent().remove();
+
+                //constroi o que vai ser inserido
+                var html =  '<li class="collection-item dismissable" style="height: 3.5em;">'
+                                +'<div class="col m1">'
+                                    +'<i style="line-height: inherit;" class="task-action action-backward go-doing fa fa-angle-left fa-2x"></i>'
+                                +'</div>'
+                                +'<div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa" style="text-decoration: line-through;">'
+                                    +task
+                                +'</div>'
+                            +'</li>';
+
+
+                //console.log(html);
+                //adiciona a lista de doing
+                $(".done").append(html);
+
+                Materialize.toast('<span>Tarefa marcada como DONE.</span>', 1500);
+                //TO-DO atualização do status
+
+                return;
+            }
+
+
+        });
+
+
+        //funcao para mudar tarefas para frente
+        $(".action-backward").click(function(){
+            console.log('action backward..');
+
+            //construcao para doing
+            if($(this).hasClass('go-doing')){
+                //get task content
+                var task = $(this).parent().parent().children()[1].innerHTML;
+
+                //remove da lista atual
+                $(this).parent().parent().remove();
+
+
+                //constroi o que vai ser inserido
+                var html =  '<li class="collection-item dismissable" style="height: 3.5em;">'
+                                +'<div class="col m1">'
+                                    +'<i style="line-height: inherit;" class="task-action action-backward go-todo  fa fa-angle-left fa-2x"></i>'
+                                +'</div>'
+                                +'<div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa">'
+                                    +task
+                                +'</div>'
+                                +'<div class="col m1">'
+                                    +'<i style="line-height: inherit;" class="task-action action-forward go-done fa fa-angle-right fa-2x"></i>'
+                                +'</div>'
+                            +'</li>';
+
+                //console.log(html);
+                //adiciona a lista de doing
+                $(".doing").append(html);
+
+                Materialize.toast('<span>Tarefa marcada como DOING.</span>', 1500);
+                //TO-DO atualização do status
+
+
+                return;
+
+            }
+            //construcao para done
+            if($(this).hasClass('go-todo')){
+                //get task content
+                var task = $(this).parent().parent().children()[1].innerHTML;
+
+                //remove da lista atual
+                $(this).parent().parent().remove();
+
+                //constroi o que vai ser inserido
+                var html =  '<li class="collection-item dismissable" style="height: 3.5em;">'
+                                +'<div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa">'
+                                    +task
+                                +'</div>'
+                                +'<div class="col m1">'
+                                    +'<i style="line-height: inherit;" class="task-action action-backward go-doing fa fa-angle-right fa-2x"></i>'
+                                +'</div>'
+                            +'</li>';
+
+
+                //console.log(html);
+                //adiciona a lista de doing
+                $(".done").append(html);
+
+                Materialize.toast('<span>Tarefa marcada como TO-DO.</span>', 1500);
+                //TO-DO atualização do status
+
+                return;
+            }
+
+        });
+
+    </script>
+
+
+<div class="hiddendiv common"></div><div class="drag-target" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); right: 0px;"></div><div class="drag-target" style="right: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div><div id="toast-container"></div></body></html>
