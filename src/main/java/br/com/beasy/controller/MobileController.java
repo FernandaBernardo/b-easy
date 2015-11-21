@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import br.com.beasy.dao.SubjectDao;
+import br.com.beasy.dao.TaskDao;
 import br.com.beasy.dao.UserDao;
 import br.com.beasy.model.Subject;
 import br.com.beasy.model.User;
@@ -23,6 +24,8 @@ public class MobileController {
 	private UserDao userDao;
 	@Inject 
 	private SubjectDao subjectDao;
+	@Inject 
+	private TaskDao taskDao;
 	
 	@Post("/mobile/login/")
 	@Consumes("application/json")
@@ -33,8 +36,14 @@ public class MobileController {
 		user.setUserType(UserType.NATIVE);
 		
 		user = userDao.loadNativeUser(user);
-
-		result.use(Results.json()).from(user).serialize();
+		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(user);
+		user.setSubjects(subjects);
+		
+		for (Subject subject : subjects) {
+			subject.setTasks(taskDao.getAllTasksFromSubject(subject));
+		}
+		
+		result.use(Results.json()).from(user).include("subjects").serialize();
 		result.nothing();
 	}
 	
@@ -47,7 +56,10 @@ public class MobileController {
 		
 		user = userDao.getUserByFacebookId(facebookId);
 		
-		result.use(Results.json()).from(user).serialize();
+		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(user);
+		user.setSubjects(subjects);
+		
+		result.use(Results.json()).from(user).include("subjects").serialize();
 		result.nothing();
 	}
 	
@@ -55,6 +67,8 @@ public class MobileController {
 	@Consumes("application/json")
 	public void addSubject(Subject subject) {
 		subjectDao.addSubject(subject);
+		
+		result.use(Results.json()).from(subject).serialize();
 		result.nothing();
 	}
 	

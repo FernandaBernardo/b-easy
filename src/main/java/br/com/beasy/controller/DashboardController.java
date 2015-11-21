@@ -58,4 +58,11 @@ public class DashboardController {
 		
 		result.include("subject", subjectById);
 	}
+	
+	@Get("/{subject.id}/tarefas/{task.id}/{status}")
+	@AuthenticationRequired
+	public void changeTask(Subject subject, Task task, Status toStatus) {
+		
+		result.forwardTo(DashboardController.class).showTasks(subject);;
+	}
 }

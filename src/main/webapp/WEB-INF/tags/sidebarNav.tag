@@ -58,7 +58,7 @@
 						<li><a href="#"><i class="fa fa-cog"></i> Config</a></li>
 						<li><a href="#"><i class="fa fa-question"></i> Ajuda</a></li>
 						<li class="divider"></li>
-						<li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+						<li><a href="<c:url value="/logout"/>"><i class="fa fa-sign-out"></i> Logout</a></li>
 					</ul>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 					<div class="collapsible-body">
 						<ul>
 							<c:forEach items="${user.subjects}" var="subject">
-								<li><a href="#">${subject.name}</a></li>
+								<li><a href="<c:url value="/${subject.id}/tarefas"/>">${subject.name}</a></li>
 							</c:forEach>
 						</ul>
 					</div>

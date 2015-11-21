@@ -99,7 +99,7 @@
 					<div class="row">
 						<div class="col s12 m12 l12">
 							<h4>
-								<span class="task-cat" style="background-color: ${subject.color};padding: 0 0; font-size: inherit;">&nbsp;</span>${subject.name}
+								<span class="task-cat" style="background-color: ${subject.color}; padding: 0 0; font-size: inherit; margin-right: .5em;">&nbsp;</span>${subject.name}
 								<i class="fa fa-times tooltipped" data-position="top" data-delay="30" data-tooltip="excluir" style="font-size: 0.5em"></i>
 							</h4>
 						</div>
@@ -126,7 +126,7 @@
 												<a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
 											</div>
 											<div class="col m1">
-												<i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i>
+												<a href="<c:url value="/${subject.id}/tarefas/${task.id}/DOING"/>"><i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i></a>
 											</div>
 										</li>
 									</c:forEach>

@@ -29,14 +29,9 @@ public class SubjectDao {
 	}
 	
 	public List<Subject> getAllSubjectsFromUser(User user) {
-		List<Subject> subjects = (List<Subject>)session.createQuery
-				("select s "
-				+ "from Subject s, User u "
-				+ "where s.user.id=u.id "
-				+ "and u.email=:user_email")
-				.setString("user_email", user.getEmail())
+		return session.createCriteria(Subject.class)
+				.add(Restrictions.eq("user.email", user.getEmail()))
 				.list();
-		return subjects;
 	}
 	
 	public void deleteSubject(Subject subject) {
