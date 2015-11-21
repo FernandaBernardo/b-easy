@@ -7,12 +7,14 @@
 	<session-factory>
 		<property name="hibernate.connection.username">b8299488e1d3de</property>
 		<property name="hibernate.connection.password">a2ed15d4</property>
-		<property name="hibernate.connection.url">jdbc:mysql://us-cdbr-iron-east-02.cleardb.net/heroku_6650a0bc62aea42?autoReconnect=true</property>
+		<property name="hibernate.connection.url">jdbc:mysql://us-cdbr-iron-east-02.cleardb.net/heroku_6650a0bc62aea42?reconnect=true</property>
 		
 <!--  		<property name="connection.url">jdbc:mysql://localhost/b-easy</property>  -->
 <!-- 		<property name="connection.username">root</property>  -->
 <!--  		<property name="connection.password"></property>  -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.autoReconnect">true</property>  
+		<property name="connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
 
 		<property name="hibernate.hbm2ddl.auto">update</property>
