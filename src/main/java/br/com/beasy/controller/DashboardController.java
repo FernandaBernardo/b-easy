@@ -8,6 +8,7 @@ import br.com.beasy.dao.SubjectDao;
 import br.com.beasy.dao.TaskDao;
 import br.com.beasy.interceptor.AuthenticationRequired;
 import br.com.beasy.model.LoggedUser;
+import br.com.beasy.model.Status;
 import br.com.beasy.model.Subject;
 import br.com.beasy.model.Task;
 import br.com.caelum.vraptor.Controller;
@@ -47,5 +48,21 @@ public class DashboardController {
 		task.setSubject(subject);
 		taskDao.addTask(task);
 		result.redirectTo(DashboardController.class).dashboard();
+	}
+	
+	@Get("/{subject.id}/tarefas")
+	@AuthenticationRequired
+	public void showTasks(Subject subject) {
+		Subject subjectById = subjectDao.getSubjectById(subject.getId());
+		subjectById.setTasks(taskDao.getAllTasksFromSubject(subjectById));
+		
+		result.include("subject", subjectById);
+	}
+	
+	@Get("/{subject.id}/tarefas/{task.id}/{status}")
+	@AuthenticationRequired
+	public void changeTask(Subject subject, Task task, Status toStatus) {
+		
+		result.forwardTo(DashboardController.class).showTasks(subject);;
 	}
 }
