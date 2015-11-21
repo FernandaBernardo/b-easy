@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- roboto -->
+    <link type="text/css" rel="stylesheet" href="css/font.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>BEasy - Meus dados</title>
+
+
+    <!-- CORE CSS-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="css/style-dash.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
+    <link href="css/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+
+
+    <style type="text/css">.task-content:hover{cursor:pointer;} .task-actions{padding-right: 10px; font-size: 0.8em; color: #666;} .action-forward:hover{color:green;} .action-backward:hover{color:red;} .task-action:hover{cursor: pointer;}  .jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style>
+</head>
+
+<body class="loaded">
+    <!-- Start Page Loading -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <!-- End Page Loading -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START HEADER -->
+    <header id="header" class="page-topbar">
+        <!-- start header nav-->
+        <div class="navbar-fixed">
+            <nav class="beasy-blue">
+                <div class="nav-wrapper">
+
+                        <a href="dashboard.html" class="brand-logo center">
+                            <img src="img/logo_branco.png" alt="materialize logo">
+                        </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="javascript:void(0);" class="waves-effect waves-block waves-light toggle-fullscreen">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- end header nav-->
+    </header>
+    <!-- END HEADER -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START MAIN -->
+    <div id="main">
+        <!-- START WRAPPER -->
+        <div class="wrapper">
+
+            <!-- START LEFT SIDEBAR NAV-->
+            <aside id="left-sidebar-nav">
+                <!-- COMECO NAV FAKE-->
+                <ul  class="side-nav changeSide show-on-large-only fixed leftside-navigation ps-container ps-active-y" style="width: 60px;">
+                    <li class="user-details beasy-blue darken-2" style="padding: 23px 0 0;height: 86px;">
+                        <div class="row">
+                            <div class="col col s12 m12 l12">
+                                <img src="img/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="no-padding active">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-home"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-folder"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-hourglass-half"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="li-hover"><div class="divider"></div></li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-history"></i></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Gambs pro menu lateral ficar sempre a mostra -->
+                    <div class="ps-scrollbar-x-rail">
+                        <div class="ps-scrollbar-x" ></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail">
+                        <div class="ps-scrollbar-y"></div>
+                    </div>
+                </ul>
+                <!-- FIM NAV FAKE-->
+
+                <ul id="slide-out" class="side-nav originalSide leftside-navigation ps-container ps-active-y" >
+                    <li class="user-details beasy-blue darken-2">
+                        <div class="row">
+                            <div class="col col s4 m4 l4">
+                                <img src="img/avatar.jpg" alt="" class="circle responsive-img valign profile-image">
+                            </div>
+                            <div class="col col s8 m8 l8">
+
+                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
+                                    Alexandre <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul id="profile-dropdown" class="dropdown-content">
+                                    <li>
+                                        <a href="#"><i class="fa fa-cog"></i> Config</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-question"></i> Ajuda</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-sign-out"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="bold active">
+                        <a href="#" class="waves-effect waves-cyan"><i class="fa fa-home"></i> Dashboard</a>
+                    </li>
+                    <li class="no-padding">
+                        <ul class="collapsible collapsible-accordion">
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-folder"></i> Matérias</a>
+                                <div class="collapsible-body" style="">
+                                    <ul>
+                                        <li>
+                                            <a href="#">PISI</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Administracao</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Inteligencia Artificial</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Empreendedorismo</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="bold">
+                                <a href="#" class="waves-effect waves-cyan"><i class="fa fa-hourglass-half"></i> Pomodoro <span class="new badge"></span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="li-hover"><div class="divider"></div></li>
+                    <li class="li-hover"><p class="ultra-small margin more-text">MAIS</p></li>
+                    <li>
+                        <a href="#"><i class="fa fa-history"></i> Histórico</a>
+                    </li>
+
+                    <!-- Gambs pro menu lateral ficar sempre a mostra -->
+                    <div class="ps-scrollbar-x-rail">
+                        <div class="ps-scrollbar-x" ></div>
+                    </div>
+                    <div class="ps-scrollbar-y-rail">
+                        <div class="ps-scrollbar-y"></div>
+                    </div>
+                </ul>
+                <!-- menu icon pra quando a tela for menor -->
+                <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </aside>
+            <!-- END LEFT SIDEBAR NAV-->
+
+            <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+            <!-- START CONTENT -->
+            <section id="content">
+
+                <!--start container-->
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col s12 m12 l12">
+                            <div class="card-panel">
+                                <h4>
+                                    Meus dados
+                                </h4>
+                                <form>
+                                    <div class="row">
+                                        <div class="input-field col m5">
+                                            <input placeholder="Nome" id="edit_name" type="text" class="validate" value="Alexandre Rossi Alvares">
+                                            <label for="edit_name" class="active">Nome</label>
+                                        </div>
+                                        <div class="input-field col m5">
+                                            <input placeholder="Email" id="edit_email" type="text" class="validate" value="alerossialvares@gmail.com">
+                                            <label for="edit_email" class="active">Email</label>
+                                        </div>
+                                        <div class="input-field col m2">
+                                            <input placeholder="Nasc." id="edit_date" type="text" class="validate" value="15/01/1993">
+                                            <label for="edit_date" class="active">Nascimento</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col m10">
+                                            <input placeholder="Curso" id="edit_curso" type="text" class="validate" value="Sistemas de Informação">
+                                            <label for="edit_curso" class="active">Curso</label>
+                                        </div>
+                                        <div class="input-field col m2">
+                                            <input placeholder="Semestre" id="edit_semestre" type="text" class="validate" value="8">
+                                            <label for="edit_semestre" class="active">Semestre</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col offset-m8 m2">
+                                            <button class="btn pink waves-effect waves-light right" href="#" name="action" style="">
+                                                Voltar
+                                            </button>
+                                        </div>
+                                        <div class="input-field col m2">
+                                            <button class="btn beasy-green waves-effect waves-light right" type="submit" name="action">
+                                                Salvar Alterações
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+
+                            <div class="card-panel">
+                                <h4>
+                                    Mudança de Senha
+                                </h4>
+                                <form>
+                                    <div class="row">
+                                        <div class="input-field col m5">
+                                            <input id="edit_senha_atual" type="password" class="validate">
+                                            <label for="edit_senha_atual" class="active">Senha Atual</label>
+                                        </div>
+                                        <div class="input-field col m5">
+                                            <input id="edit_senha_nova" type="password" class="validate">
+                                            <label for="edit_senha_nova" class="active">Nova Senha</label>
+                                        </div>
+                                        <div class="input-field col m2">
+                                            <button class="btn beasy-green waves-effect waves-light right" type="submit" name="action">
+                                                Alterar Senha
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Floating Action Button -->
+                    <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+                        <a class="btn-floating btn-large beasy-green">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="#modal-tarefa" class="btn-floating red modal-trigger">
+                                    <i class="fa fa-check"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#modal-materia" class="btn-floating blue modal-trigger">
+                                    <i class="fa fa-folder"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+                    <!-- Floating Action Button -->
+                </div>
+                <!--end container-->
+
+                <!-- modals com adição de materias e tarefas -->
+                <div id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+                    <div class="modal-content">
+                        <h4>Adicione uma Matéria</h4>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="Cálculo" id="project_name" type="text" class="validate">
+                                    <label for="project_name" class="active">Matéria</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="project_comment" class="materialize-textarea"></textarea>
+                                    <label for="project_comment" class="">Descrição</label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+                    </div>
+                </div>
+                <div id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+                    <div class="modal-content">
+                        <h4>Adicione uma tarefa</h4>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s9">
+                                    <input placeholder="Pesquisar referências" id="task_name" type="text" class="validate">
+                                    <label for="task_name" class="active">Tarefa</label>
+                                </div>
+                                <div class="input-field col s3">
+                                    <!--<input type="date" class="datepicker">-->
+                                    <input placeholder="02/02/2016" id="task_date" type="text" class="validate">
+                                    <label for="task_date" class="active">Data</label>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col s9">
+                                      <label>Projeto</label>
+                                      <select class="browser-default">
+                                        <option value="" disabled="" selected="">Escolha um projeto</option>
+                                        <option value="1">Projeto Integrado de Sistemas de Informacao</option>
+                                        <option value="2">Administracao de Empresas</option>
+                                        <option value="3">Inteligencia Artificial</option>
+                                        <option value="4">Empreendedorismo</option>
+                                      </select>
+                                </div>
+                                <div class="col s3">
+                                      <label>Status</label>
+                                      <select class="browser-default">
+                                        <option value="" disabled="" selected="">----</option>
+                                        <option value="1">TO-DO</option>
+                                        <option value="2">DOING</option>
+                                        <option value="3">DONE</option>
+                                      </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea id="task_comment" class="materialize-textarea"></textarea>
+                                    <label for="task_comment" class="">Comentários</label>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
+                        <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+                    </div>
+                </div>
+
+
+
+
+            </div></section>
+            <!-- END CONTENT -->
+        </div>
+        <!-- END WRAPPER -->
+
+    </div>
+    <!-- END MAIN -->
+
+    <!-- //////////////////////////////////////////////////////////////////////////// -->
+
+    <!-- START FOOTER -->
+    <footer id="footer" class="page-footer beasy-blue">
+        <div class="footer-copyright">
+            <div class="container">
+                Copyright © 2015 <a class="grey-text text-lighten-4" href="#" target="_blank">BEasy</a> All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER -->
+
+
+    <!-- ================================================
+    Scripts
+    ================================================ -->
+
+    <!-- jQuery Library -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <!--materialize js-->
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="js/footer_binder.js"></script>
+
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="js/plugins-dash.js"></script>
+
+    <!-- Toast Notification -->
+    <script type="text/javascript">
+
+        $("#edit_date").mask("99/99/9999");
+        // Toast Notification
+        /*
+        $(window).load(function() {
+            setTimeout(function() {
+                Materialize.toast('<span>Hiya! I am a toast.</span>', 1500);
+            }, 1500);
+            setTimeout(function() {
+                Materialize.toast('<span>You have new order.</span><a class="btn-flat yellow-text" href="#">Read<a>', 3000);
+            }, 15000);
+        });
+
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+        */
+
+
+    </script>
+
+
+<div class="hiddendiv common"></div><div class="drag-target" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); right: 0px;"></div><div class="drag-target" style="right: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div><div id="toast-container"></div></body></html>
