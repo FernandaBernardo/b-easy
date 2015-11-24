@@ -129,7 +129,7 @@
 											<label for="task${index.count}" style="text-decoration: none;">${task.title}<a href="#" class="secondary-content">
 												<span class="ultra-small alert">${task.finalDate}</span></a>
 											</label>
-											<span class="task-catl" style="background-color: ${task.subject.color}">${task.subject.name}</span>
+											<span class="task-catl" style="background-color: ${task.subject.color}">&nbsp;${task.subject.name}&nbsp;</span>
 										</li>
 									</c:forEach>
 								</ul>
