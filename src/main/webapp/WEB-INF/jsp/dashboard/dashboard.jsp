@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 	<title>BEasy - Dashboard</title>
 
-	<!-- CORE CSS-->	
+	<!-- CORE CSS-->
 	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="css/style-dash.css" type="text/css" rel="stylesheet" media="screen,projection">
 
@@ -42,7 +42,7 @@
 			border: 1px solid white;
 			z-index: 10000;
 		}
-		
+
 		.jqsfield {
 			color: white;
 			font: 10px arial, san serif;
@@ -61,7 +61,7 @@
 	<!-- End Page Loading -->
 
 	<tags:header />
-	
+
 	<!-- START MAIN -->
 	<div id="main">
 		<!-- START WRAPPER -->
@@ -118,17 +118,17 @@
 												<a href="#" class="beasy-green-color"><i class="fa fa-check fa-3x"></i></a>
 											</div>
 											<div class="col m11 l11">
-												<span class="collection-header">Próximas Tarefas</span>
+												<span class="collection-header">Prï¿½ximas Tarefas</span>
 												<p class="task-card-date" style="color: black; padding-left: 20px;">23 outubro, 2015</p>
 											</div>
 										</div>
 									</li>
 									<c:forEach items="${nextTasks}" var="task" varStatus="index">
 										<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-											<input type="checkbox" id="task${index.count}"> 
+											<input type="checkbox" id="task${index.count}">
 											<label for="task${index.count}" style="text-decoration: none;">${task.title}<a href="#" class="secondary-content">
 												<span class="ultra-small alert">${task.finalDate}</span></a>
-											</label> 
+											</label>
 											<span class="task-catl" style="background-color: ${task.subject.color}">${task.subject.name}</span>
 										</li>
 									</c:forEach>
@@ -150,7 +150,7 @@
 										<h4 class="card-stats-number">14</h4>
 									</div>
 									<div class="card-action purple darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">4 matérias diferentes</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">4 matï¿½rias diferentes</p>
 									</div>
 								</div>
 							</div>
@@ -164,7 +164,7 @@
 										<h4 class="card-stats-number">3</h4>
 									</div>
 									<div class="card-action blue-grey darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">2 matérias diferentes</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">2 matï¿½rias diferentes</p>
 									</div>
 								</div>
 							</div>
@@ -177,7 +177,7 @@
 										<h4 class="card-stats-number">32</h4>
 									</div>
 									<div class="card-action green darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">72% na última semana</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">72% na ï¿½ltima semana</p>
 									</div>
 								</div>
 							</div>
@@ -191,23 +191,11 @@
 
 									</div>
 									<div class="card-action  pink darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">50% há um mês</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">50% hï¿½ um mï¿½s</p>
 									</div>
 								</div>
 							</div>
-							<div class="col s12 m6 l2">
-								<div class="card">
-									<div class="card-content cyan lighten-2 white-text">
-										<p class="card-stats-title">
-											<i class="fa fa-hourglass-half"></i> POMODORO
-										</p>
-										<h4 class="card-stats-number">147</h4>
-									</div>
-									<div class="card-action cyan darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">minutos em 16 seções</p>
-									</div>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 					<!--card stats end-->
@@ -224,10 +212,10 @@
 				</div>
 				<!--end container-->
 
-				<!-- modals com adição de materias e tarefas -->
+				<!-- modals com adiï¿½ï¿½o de materias e tarefas -->
 				<form action="<c:url value='/nova-materia'/>" method="post" id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
-						<h4>Adicione uma matéria</h4>
+						<h4>Adicione uma matï¿½ria</h4>
 							Nome:
 							<input type="text" name="subject.name">
 							Cor:
@@ -235,15 +223,15 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">
+						<input type="submit" value="Adicionar matï¿½ria" class="waves-effect waves-green btn-flat modal-action modal-close">
 					</div>
 				</form>
 				<form action='<c:url value='/nova-tarefa'/>' method="post" id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma tarefa</h4>
-						Título
+						Tï¿½tulo
 						<input type="text" name="task.title">
-						Descrição
+						Descriï¿½ï¿½o
 						<input type="text" name="task.description">
 						<input list="subjects" name="task.subject.name" >
 						<datalist id="subjects">
@@ -254,7 +242,7 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">
+						<input type="submit" value="Adicionar matï¿½ria" class="waves-effect waves-green btn-flat modal-action modal-close">
 					</div>
 				</form>
 			</section>
