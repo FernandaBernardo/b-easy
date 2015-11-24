@@ -17,6 +17,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 
+import com.google.gson.annotations.Expose;
+
 @Controller
 public class MobileController {
 	@Inject
@@ -40,12 +42,7 @@ public class MobileController {
 		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(user);
 		user.setSubjects(subjects);
 		
-		for (Subject subject : subjects) {
-			subject.setTasks(taskDao.getAllTasksFromSubject(subject));
-		}
-		
-		result.use(Results.json()).from(user).serialize();
-		result.use(Results.json()).from(user.getSubjects()).include("tasks").serialize();
+		result.use(Results.json()).from(user).include("subjects").serialize();
 		result.nothing();
 	}
 	
@@ -61,12 +58,7 @@ public class MobileController {
 		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(user);
 		user.setSubjects(subjects);
 		
-		for (Subject subject : subjects) {
-			subject.setTasks(taskDao.getAllTasksFromSubject(subject));
-		}
-		
-		result.use(Results.json()).from(user).serialize();
-		result.use(Results.json()).from(user.getSubjects()).include("tasks").serialize();
+		result.use(Results.json()).from(user).include("subjects").serialize();
 		result.nothing();
 	}
 	
