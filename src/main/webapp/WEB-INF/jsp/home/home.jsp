@@ -50,7 +50,6 @@
 					<li><a href="#app">App</a></li>
 					<li><a href="#cadastro">Cadastre-se</a></li>
 					<li><a href="#about">Equipe</a></li>
-					<li><a href="#contact">Fale conosco</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -107,7 +106,7 @@
 							</div>
 							<div class="service-desc">
 								<h5>Tarefas</h5>
-								<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+								<p>Organize suas tarefas com BEasy. Organize-as por matérias e também por andamento, não perca mais seus prazos!</p>
 							</div>
 						</div>
 					</div>
@@ -120,7 +119,7 @@
 							</div>
 							<div class="service-desc">
 								<h5>Metas</h5>
-								<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+								<p>Traçar metas para grandes projetos fica mais fácil com BEasy! Deixe a organização com a gente para manter-se focado.</p>
 							</div>
 						</div>
 					</div>
@@ -133,7 +132,7 @@
 							</div>
 							<div class="service-desc">
 								<h5>Acompanhe seu progresso</h5>
-								<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+								<p>Acompanhe seu progresso: BEasy também reune algumas informações úteis sobre seu desempenho, assim você poderá perceber em que precisa se concentrar mais!</p>
 							</div>
 						</div>
 					</div>
@@ -146,7 +145,7 @@
 							</div>
 							<div class="service-desc">
 								<h5>Cloud System</h5>
-								<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+								<p>Todos os benefícios de BEasy ficam guardados na nuvem! Dessa forma você desfruta de tudo isso de onde você estiver, seja num computador ou em seu celular!</p>
 							</div>
 						</div>
 					</div>
@@ -188,7 +187,7 @@
 							</div>
 							<div class="service-desc">
 								<h5>Android</h5>
-								<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
+								<p>Com o aplicativo BEasy para Android você carrega tudo que o BEasy te oferece na palma de sua mão! Não se preocupe mais em levar papel e caneta para uma reunião, basta puxar seu celular do bolso e anotar suas novas tarefas. Ao chegar em casa, tudo já estará no seu computador!</p>
 							</div>
 						</div>
 					</div>
@@ -322,105 +321,6 @@
 		</div>
 	</section>
 	<!-- /Section: team -->
-
-	<!-- Section: contact -->
-	<section id="contact" class="home-section text-center">
-		<div class="heading-contact">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 col-lg-offset-2">
-						<div class="wow bounceInDown" data-wow-delay="0.4s">
-							<div class="section-heading">
-								<h2>Entre em contato!</h2>
-								<i class="fa fa-2x fa-angle-down"></i>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-2 col-lg-offset-5">
-					<hr class="marginbot-50">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-8">
-					<div class="boxed-grey">
-						<form id="contact-form">
-							<div class="row">
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="name"> Nome</label> 
-										<input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
-									</div>
-									<div class="form-group">
-										<label for="email"> Email</label>
-										<div class="input-group">
-											<span class="input-group-addon">
-												<span class="glyphicon glyphicon-envelope"></span> 
-											</span> 
-											<input type="email" class="form-control" id="email" placeholder="Enter email" required="required" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="subject"> Assunto</label> 
-										<select id="subject" name="subject" class="form-control" required="required">
-											<option value="na" selected="selected">Escolha um assunto:</option>
-											<option value="service">Atendimento ao cliente</option>
-											<option value="suggestions">Sugestões</option>
-											<option value="product">Problemas com o app</option>
-										</select>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="name"> Mensagem</label>
-										<textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required" placeholder="Message"></textarea>
-									</div>
-								</div>
-								<div class="col-md-12">
-									<button type="submit" class="btn btn-skin pull-right" id="btnContactUs">Enviar mensagem</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-
-				<div class="col-lg-4">
-					<div class="widget-contact">
-						<h5>Escritório</h5>
-
-						<address>
-							<strong>BEasy</strong><br> 
-							Rua Arlindo Bétio, 1000<br>
-							Ermelino Matarazzo, São Paulo - SP<br> 
-							<abbr title="Phone">Cel:</abbr>
-							(11) XXXXX-XXXX
-						</address>
-
-						<address>
-							<strong>Email</strong><br> 
-							<a href="mailto:#">email.name@example.com</a>
-						</address>
-						<address>
-							<strong>Siga-nos nas redes sociais!</strong><br>
-							<ul class="company-social">
-								<li class="social-facebook">
-									<a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li class="social-twitter">
-									<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-								</li>
-							</ul>
-						</address>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- /Section: contact -->
 
 	<footer>
 		<div class="container">
