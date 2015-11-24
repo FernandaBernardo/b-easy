@@ -7,46 +7,46 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	
+
 	<!-- roboto -->
 	<link type="text/css" rel="stylesheet" href="../css/font.css">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 	<title>BEasy - ${subject.name}</title>
-	
+
 	<!-- CORE CSS-->
 	<link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
 	<link href="../css/style-dash.css" type="text/css" rel="stylesheet" media="screen,projection">
-	
+
 	<!-- FONT AWESOME -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	
+
 	<!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
 	<link href="../perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
-	
+
 	<style type="text/css">
 		.task-content:hover {
 			cursor: pointer;
 		}
-		
+
 		.task-actions {
 			padding-right: 10px;
 			font-size: 0.8em;
 			color: #666;
 		}
-		
+
 		.action-forward:hover {
 			color: green;
 		}
-		
+
 		.action-backward:hover {
 			color: red;
 		}
-		
+
 		.task-action:hover {
 			cursor: pointer;
 		}
-		
+
 		.jqstooltip {
 			position: absolute;
 			left: 0px;
@@ -66,7 +66,7 @@
 			border: 1px solid white;
 			z-index: 10000;
 		}
-		
+
 		.jqsfield {
 			color: white;
 			font: 10px arial, san serif;
@@ -85,7 +85,7 @@
 	<!-- End Page Loading -->
 
 	<tags:header />
-	
+
 	<!-- START MAIN -->
 	<div id="main">
 		<!-- START WRAPPER -->
@@ -116,13 +116,13 @@
 											</div>
 											<div class="col m11 l11">
 												<span class="collection-header">TO-DO</span>
-												<p class="task-card-date" style="color: black; padding-left: 20px;">${subject.toDoTasks.size()} Tarefas</p>
+												<p class="task-card-date" style="color: black; padding-left: 20px;">${subject.toDoTasks.size()} Tarefa(s)</p>
 											</div>
 										</div>
 									</li>
 									<c:forEach items="${subject.toDoTasks}" var="task">
 										<li class="collection-item dismissable" style="height: 3.5em;">
-											<div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa">${task.title} 
+											<div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa">${task.title}
 												<a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
 											</div>
 											<div class="col m1">
@@ -142,7 +142,7 @@
 											</div>
 											<div class="col m11 l11">
 												<span class="collection-header" style="padding: 20px">Doing</span>
-												<p class="task-card-date" style="color: black; padding-left: 20px;">${subject.doingTasks.size()} Tarefas</p>
+												<p class="task-card-date" style="color: black; padding-left: 20px;">${subject.doingTasks.size()} Tarefa(s)</p>
 											</div>
 										</div>
 									</li>
@@ -170,7 +170,7 @@
 											</div>
 											<div class="col m11 l11">
 												<span class="collection-header">Done</span>
-												<p class="task-card-date" style="color: black; padding-left: 20px;">${subject.doneTasks.size()} Tarefas</p>
+												<p class="task-card-date" style="color: black; padding-left: 20px;">${subject.doneTasks.size()} Tarefa(s)</p>
 											</div>
 										</div>
 									</li>
@@ -202,20 +202,20 @@
 				</div>
 				<!--end container-->
 
-				<!-- modals com adição de materias e tarefas -->
+				<!-- modals com adiï¿½ï¿½o de materias e tarefas -->
 				<div id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
-						<h4>Adicione uma Matéria</h4>
+						<h4>Adicione uma Matï¿½ria</h4>
 						<form class="col s12">
 							<div class="row">
 								<div class="input-field col s12">
-									<input placeholder="Cálculo" id="project_name" type="text" class="validate"> <label for="project_name" class="active">Matéria</label>
+									<input placeholder="Cï¿½lculo" id="project_name" type="text" class="validate"> <label for="project_name" class="active">Matï¿½ria</label>
 								</div>
 							</div>
 							<div class="row">
 								<div class="input-field col s12">
 									<textarea id="project_comment" class="materialize-textarea"></textarea>
-									<label for="project_comment" class="">Descrição</label>
+									<label for="project_comment" class="">Descriï¿½ï¿½o</label>
 								</div>
 							</div>
 						</form>
@@ -231,7 +231,7 @@
 						<form class="col s12">
 							<div class="row">
 								<div class="input-field col s9">
-									<input placeholder="Pesquisar referências" id="task_name" type="text" class="validate"> <label for="task_name" class="active">Tarefa</label>
+									<input placeholder="Pesquisar referï¿½ncias" id="task_name" type="text" class="validate"> <label for="task_name" class="active">Tarefa</label>
 								</div>
 								<div class="input-field col s3">
 									<!--<input type="date" class="datepicker">-->
@@ -260,7 +260,7 @@
 							<div class="row">
 								<div class="input-field col s12">
 									<textarea id="task_comment" class="materialize-textarea"></textarea>
-									<label for="task_comment" class="">Comentários</label>
+									<label for="task_comment" class="">Comentï¿½rios</label>
 								</div>
 							</div>
 
@@ -287,7 +287,7 @@
 							</div>
 							<div class="row">
 								<div class="col s9">
-									<label>Projeto</label> 
+									<label>Projeto</label>
 									<select class="browser-default" id="task_edit_project">
 										<option value="" selected="">Inteligencia Artificial</option>
 									</select>
@@ -304,7 +304,7 @@
 							<div class="row">
 								<div class="input-field col s12">
 									<textarea id="task_edit_comment" class="materialize-textarea"></textarea>
-									<label for="task_comment" class="">Comentários</label>
+									<label for="task_comment" class="">Comentï¿½rios</label>
 								</div>
 							</div>
 
@@ -312,7 +312,7 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar alterações</a>
+						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar alteraï¿½ï¿½es</a>
 					</div>
 				</div>
 			</section>
@@ -324,10 +324,10 @@
 	<!-- //////////////////////////////////////////////////////////////////////////// -->
 
 	<tags:footer />
-	
+
 	<!-- Toast Notification -->
 	<script type="text/javascript">
-        //preenche o modal de edição com os valores da task
+        //preenche o modal de ediï¿½ï¿½o com os valores da task
         $(".task-content").click(function(){
             //console.log($(this));
             $("#task_edit_name").val('TAREFA CERTA DEPOIS DE USAR O ID');
@@ -366,7 +366,7 @@
                 $(".doing").append(html);
 
                 Materialize.toast('<span>Tarefa marcada como DOING.</span>', 1500);
-                //TO-DO atualização do status
+                //TO-DO atualizaï¿½ï¿½o do status
 
                 return;
             }
@@ -392,7 +392,7 @@
                 $(".done").append(html);
 
                 Materialize.toast('<span>Tarefa marcada como DONE.</span>', 1500);
-                //TO-DO atualização do status
+                //TO-DO atualizaï¿½ï¿½o do status
 
                 return;
             }
@@ -429,7 +429,7 @@
                 $(".doing").append(html);
 
                 Materialize.toast('<span>Tarefa marcada como DOING.</span>', 1500);
-                //TO-DO atualização do status
+                //TO-DO atualizaï¿½ï¿½o do status
 
 
                 return;
@@ -458,7 +458,7 @@
                 $(".done").append(html);
 
                 Materialize.toast('<span>Tarefa marcada como TO-DO.</span>', 1500);
-                //TO-DO atualização do status
+                //TO-DO atualizaï¿½ï¿½o do status
 
                 return;
             }
