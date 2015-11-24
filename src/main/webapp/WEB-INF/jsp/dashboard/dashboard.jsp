@@ -147,10 +147,10 @@
 										<p class="card-stats-title">
 											<i class="fa fa-pencil-square-o"></i> TO-DO
 										</p>
-										<h4 class="card-stats-number">14</h4>
+										<h4 class="card-stats-number">?</h4>
 									</div>
 									<div class="card-action purple darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">4 mat&eacute;rias diferentes</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">? mat&eacute;rias diferentes</p>
 									</div>
 								</div>
 							</div>
@@ -161,10 +161,10 @@
 											<i class="fa fa-crosshairs"></i> DOING
 										</p>
 
-										<h4 class="card-stats-number">3</h4>
+										<h4 class="card-stats-number">?</h4>
 									</div>
 									<div class="card-action blue-grey darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">2 mat&eacute;rias diferentes</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">? mat&eacute;rias diferentes</p>
 									</div>
 								</div>
 							</div>
@@ -174,10 +174,10 @@
 										<p class="card-stats-title">
 											<i class="fa fa-check"></i> DONE
 										</p>
-										<h4 class="card-stats-number">32</h4>
+										<h4 class="card-stats-number">?</h4>
 									</div>
 									<div class="card-action green darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">72% na &uacute;ltima semana</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">?% na &uacute;ltima semana</p>
 									</div>
 								</div>
 							</div>
@@ -187,11 +187,11 @@
 										<p class="card-stats-title">
 											<i class="fa fa-exclamation-triangle"></i> ATRASADAS
 										</p>
-										<h4 class="card-stats-number">2</h4>
+										<h4 class="card-stats-number">?</h4>
 
 									</div>
 									<div class="card-action  pink darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">50% h&aacute; um m&ecirc;s</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">?% h&aacute; um m&ecirc;s</p>
 									</div>
 								</div>
 							</div>

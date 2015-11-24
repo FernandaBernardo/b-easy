@@ -339,6 +339,8 @@
 
             //construcao para doing
             if($(this).hasClass('go-doing')){
+				console.log($(this));
+
                 //get task content
                 var task = $(this).parent().parent().children()[0].innerHTML;
 
@@ -365,11 +367,6 @@
 
                 Materialize.toast('<span>Tarefa marcada como DOING.</span>', 1500);
                 //TO-DO atualiza��o do status
-				$.ajax({
-					url: 'http://b-easy.herokuapp.com/${subject.id}/tarefas/${task.id}/2'
-				}).done(function() {
-				  	console.log('went doing')
-				});
 
                 return;
             }
@@ -396,6 +393,8 @@
 
                 Materialize.toast('<span>Tarefa marcada como DONE.</span>', 1500);
                 //TO-DO atualiza��o do status
+
+
 
                 return;
             }
