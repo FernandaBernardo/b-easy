@@ -122,7 +122,7 @@
 									</li>
 									<c:forEach items="${subject.toDoTasks}" var="task">
 										<li class="collection-item dismissable" style="height: 3.5em;">
-											<div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa">${task.title}
+											<div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa" data="${task.title};${task.status};${task.description}">${task.title}
 												<a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
 											</div>
 											<div class="col m1">
@@ -202,7 +202,6 @@
 				</div>
 				<!--end container-->
 
-				<!-- modals com adi��o de materias e tarefas -->
 				<!-- modals com adi��o de materias e tarefas -->
 				<form action="<c:url value='/nova-materia'/>" method="post" id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
@@ -327,7 +326,8 @@
 	<script type="text/javascript">
         //preenche o modal de edi��o com os valores da task
         $(".task-content").click(function(){
-            //console.log($(this));
+            console.log($(this));
+
             $("#task_edit_name").val('TAREFA CERTA DEPOIS DE USAR O ID');
 
             //TO DO pega o id da task e preenche comments/status/data/name
