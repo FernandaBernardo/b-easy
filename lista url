@@ -30,12 +30,16 @@ TAREFA
 	cadastro
 		parametro: tudo, idSubject
 		retorna success
+		curl -v -H "Content-Type: application/json" -X POST -d '{"task": {"title":"Task", "description":"Teste Teste", "status":"DOING", "subject": {"id": "2"}}}' http://localhost:8080/mobile/add-task/
 	editar
 		parametro: tudo, idSubject
 		retorna success
+		curl -v -H "Content-Type: application/json" -X POST -d '{"task": {"id":"5", "title":"Task", "description":"Teste Teste", "status":"DONE", "subject": {"id": "2"}}}' http://localhost:8080/mobile/edit-task/
 	remover
 		parametro: id
 		retorna success
+		curl -v -H "Content-Type: application/json" -X POST -d '{"task": {"id":"5"}}' http://localhost:8080/mobile/remove-task/
 	get
 		parametro: idSubject
 		retorna list<task>
+		curl -v -H "Content-Type: application/json" -X POST -d '{"subject": {"id":"2"}}' http://localhost:8080/mobile/get-tasks/

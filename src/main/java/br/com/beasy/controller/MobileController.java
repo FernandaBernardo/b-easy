@@ -7,11 +7,14 @@ import javax.inject.Inject;
 import br.com.beasy.dao.SubjectDao;
 import br.com.beasy.dao.TaskDao;
 import br.com.beasy.dao.UserDao;
+import br.com.beasy.interceptor.AuthenticationRequired;
 import br.com.beasy.model.Subject;
+import br.com.beasy.model.Task;
 import br.com.beasy.model.User;
 import br.com.beasy.model.UserType;
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
@@ -92,6 +95,39 @@ public class MobileController {
 		User user = userDao.getUserByEmail(email);
 		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(user);
 		result.use(Results.json()).from(subjects).serialize();
+		result.nothing();
+	}
+	
+	@Post("/mobile/add-task/")
+	@Consumes("application/json")
+	public void newTask(Task task) {
+		Subject subject = subjectDao.getSubjectById(task.getSubject().getId());
+		task.setSubject(subject);
+		taskDao.addTask(task);
+		result.nothing();
+	}
+	
+	@Post("/mobile/edit-task/")
+	@Consumes("application/json")
+	public void editTask(Task task) {
+		Subject subject = subjectDao.getSubjectById(task.getSubject().getId());
+		task.setSubject(subject);
+		taskDao.updateTask(task);
+		result.nothing();
+	}
+	
+	@Post("/mobile/remove-task/")
+	@Consumes("application/json")
+	public void removeTask(Task task) {
+		taskDao.deleteTask(task);
+		result.nothing();
+	}
+	
+	@Post("/mobile/get-tasks/")
+	@Consumes("application/json")
+	public void removeTask(Subject subject) {
+		List<Task> tasks = taskDao.getAllTasksFromSubject(subject);
+		result.use(Results.json()).from(tasks).serialize();
 		result.nothing();
 	}
 }
