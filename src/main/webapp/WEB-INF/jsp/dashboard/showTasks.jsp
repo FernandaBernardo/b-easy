@@ -126,7 +126,7 @@
 												<a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
 											</div>
 											<div class="col m1">
-												<a href="<c:url value="/${subject.id}/tarefas/${task.id}/DOING"/>"><i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i></a>
+												<a href="#"><i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i></a>
 											</div>
 										</li>
 									</c:forEach>
@@ -365,6 +365,11 @@
 
                 Materialize.toast('<span>Tarefa marcada como DOING.</span>', 1500);
                 //TO-DO atualiza��o do status
+				$.ajax({
+					url: 'http://b-easy.herokuapp.com/${subject.id}/tarefas/${task.id}/2'
+				}).done(function() {
+				  	console.log('went doing')
+				});
 
                 return;
             }
