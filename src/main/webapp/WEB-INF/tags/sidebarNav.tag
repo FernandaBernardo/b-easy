@@ -45,7 +45,6 @@
 					<a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown"> ${user.name} <i class="fa fa-caret-down"></i></a>
 					<ul id="profile-dropdown" class="dropdown-content">
 						<li><a href="#"><i class="fa fa-cog"></i> Config</a></li>
-						<li><a href="#"><i class="fa fa-question"></i> Ajuda</a></li>
 						<li class="divider"></li>
 						<li><a href="<c:url value="/logout"/>"><i class="fa fa-sign-out"></i> Logout</a></li>
 					</ul>
@@ -67,7 +66,7 @@
 			</ul>
 		</li>
 
-	
+
 		<!-- Gambs pro menu lateral ficar sempre a mostra -->
 		<div class="ps-scrollbar-x-rail">
 			<div class="ps-scrollbar-x"></div>
