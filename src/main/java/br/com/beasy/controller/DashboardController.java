@@ -59,10 +59,20 @@ public class DashboardController {
 		result.include("subject", subjectById);
 	}
 	
-	@Get("/{subject.id}/tarefas/{task.id}/{status}")
+	@Get("/{subject.id}/tarefas/{task.id}/{toStatus}")
 	@AuthenticationRequired
-	public void changeTask(Subject subject, Task task, Status toStatus) {
-		task.setStatus(toStatus);
-		taskDao.updateTask(task);
+	public void changeTask(Subject subject, Task task, int toStatus) {
+		Subject subjectById = subjectDao.getSubjectById(subject.getId());
+		Task taskById = taskDao.getTaskById(task.getId());
+		taskById.setSubject(subjectById);
+		if(toStatus==0) {
+			taskById.setStatus(Status.TODO);
+		} else if(toStatus == 1) {
+			taskById.setStatus(Status.DONE);
+		} else {
+			taskById.setStatus(Status.DOING);
+		}
+		taskDao.updateTask(taskById);
+		result.nothing();
 	}
 }

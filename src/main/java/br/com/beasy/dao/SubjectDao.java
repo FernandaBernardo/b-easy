@@ -11,8 +11,17 @@ import br.com.beasy.model.Subject;
 import br.com.beasy.model.User;
 
 public class SubjectDao {
-	@Inject private Session session;
+	private Session session;
 	
+	@Deprecated
+	public SubjectDao() {
+	}
+	
+	@Inject
+	public SubjectDao(Session session) {
+		this.session = session;
+	}
+
 	public void addSubject(Subject subject) {
 		session.save(subject);
 	}
@@ -29,7 +38,7 @@ public class SubjectDao {
 	}
 	
 	public List<Subject> getAllSubjectsFromUser(User user) {
-		return session.createCriteria(Subject.class)
+		return (List<Subject>) session.createCriteria(Subject.class)
 				.add(Restrictions.eq("user.email", user.getEmail()))
 				.list();
 	}

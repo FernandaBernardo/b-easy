@@ -24,6 +24,12 @@ public class TaskDao {
 		session.update(task);
 	}
 	
+	public Task getTaskById(Long id) {
+		return (Task) session.createCriteria(Task.class)
+		.add(Restrictions.eq("id", id))
+		.uniqueResult();
+	}
+	
 	public List<Task> getAllTasksFromSubject(Subject subject) {
 		return (List<Task>) session.createCriteria(Task.class).add(Restrictions.eq("subject.id", subject.getId())).list(); 
 	}
