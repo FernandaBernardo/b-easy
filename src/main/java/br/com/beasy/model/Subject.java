@@ -28,7 +28,7 @@ public class Subject {
 		int total = tasks.size() == 0 ? 1 : tasks.size();
 		
 		for (Task task : tasks) {
-			if(task.getStatus().equals(Status.DONE)) {
+			if(Status.DONE.equals(task.getStatus())) {
 				progress++;
 			}
 		}
@@ -39,7 +39,7 @@ public class Subject {
 	public List<Task> getToDoTasks() {
 		List<Task> toDo = new ArrayList<Task>();
 		for (Task task : tasks) {
-			if(Status.TODO.getType() == task.getStatus().getType()) toDo.add(task);
+			if(Status.TODO.equals(task.getStatus())) toDo.add(task);
 		}
 		return toDo;
 	}
@@ -47,7 +47,7 @@ public class Subject {
 	public List<Task> getDoingTasks() {
 		List<Task> doing = new ArrayList<Task>();
 		for (Task task : tasks) {
-			if(Status.DOING.getType() == task.getStatus().getType()) doing.add(task);
+			if(Status.DOING.equals(task.getStatus())) doing.add(task);
 		}
 		return doing;
 	}
@@ -55,7 +55,7 @@ public class Subject {
 	public List<Task> getDoneTasks() {
 		List<Task> done = new ArrayList<Task>();
 		for (Task task : tasks) {
-			if(Status.DONE.getType() == task.getStatus().getType()) done.add(task);
+			if(Status.DONE.equals(task.getStatus())) done.add(task);
 		}
 		return done;
 	}
