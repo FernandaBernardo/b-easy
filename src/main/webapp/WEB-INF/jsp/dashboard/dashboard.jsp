@@ -195,7 +195,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<!--card stats end-->
@@ -216,9 +216,9 @@
 				<form action="<c:url value='/nova-materia'/>" method="post" id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma mat�ria</h4>
-							Nome:
+							Nome
 							<input type="text" name="subject.name">
-							Cor:
+							Cor
 							<input type="color" name="subject.color">
 					</div>
 					<div class="modal-footer">
@@ -234,6 +234,7 @@
 						Descri��o
 						<input type="text" name="task.description">
 						<input list="subjects" name="task.subject.name" >
+						Matéria
 						<datalist id="subjects">
 							<c:forEach items="${user.subjects}" var="subject">
 								<option value="${subject.name}">${subject.name}</option>
