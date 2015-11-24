@@ -100,7 +100,7 @@
 						<div class="col s12 m12 l12">
 							<h4>
 								<span class="task-cat" style="background-color: ${subject.color}; padding: 0 0; font-size: inherit; margin-right: .5em;">&nbsp;</span>${subject.name}
-								<i class="fa fa-times tooltipped" data-position="top" data-delay="30" data-tooltip="excluir" style="font-size: 0.5em"></i>
+								<!--<i class="fa fa-times tooltipped" data-position="top" data-delay="30" data-tooltip="excluir" style="font-size: 0.5em"></i>-->
 							</h4>
 						</div>
 					</div>
@@ -269,7 +269,7 @@
 						<!--<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">-->
 					</div>
 				</form>
-				
+
 				<!-- modal para editar uma tarefa -->
 				<div id="modal-edit-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
