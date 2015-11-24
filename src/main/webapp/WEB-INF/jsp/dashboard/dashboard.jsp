@@ -83,7 +83,7 @@
 												<a href="#" class="beasy-green-color"> <i class="fa fa-folder-open fa-3x"></i></a>
 											</div>
 											<div class="col m11 l11">
-												<span class="collection-header">Matérias</span>
+												<span class="collection-header">Mat&eacute;rias</span>
 												<p>Resumo de suas atividades</p>
 											</div>
 										</div>
@@ -118,7 +118,7 @@
 												<a href="#" class="beasy-green-color"><i class="fa fa-check fa-3x"></i></a>
 											</div>
 											<div class="col m11 l11">
-												<span class="collection-header">Próximas Tarefas</span>
+												<span class="collection-header">Pr&oacute;ximas Tarefas</span>
 												<p class="task-card-date" style="color: black; padding-left: 20px;">As mais recentes</p>
 											</div>
 										</div>
@@ -150,7 +150,7 @@
 										<h4 class="card-stats-number">14</h4>
 									</div>
 									<div class="card-action purple darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">4 matérias diferentes</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">4 mat&eacute;rias diferentes</p>
 									</div>
 								</div>
 							</div>
@@ -164,7 +164,7 @@
 										<h4 class="card-stats-number">3</h4>
 									</div>
 									<div class="card-action blue-grey darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">2 matérias diferentes</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">2 mat&eacute;rias diferentes</p>
 									</div>
 								</div>
 							</div>
@@ -177,7 +177,7 @@
 										<h4 class="card-stats-number">32</h4>
 									</div>
 									<div class="card-action green darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">72% na última semana</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">72% na &uacute;ltima semana</p>
 									</div>
 								</div>
 							</div>
@@ -191,7 +191,7 @@
 
 									</div>
 									<div class="card-action  pink darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">50% há um mês</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">50% h&aacute; um mês</p>
 									</div>
 								</div>
 							</div>
@@ -215,7 +215,7 @@
 				<!-- modals com adi��o de materias e tarefas -->
 				<form action="<c:url value='/nova-materia'/>" method="post" id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
-						<h4>Adicione uma matéria</h4>
+						<h4>Adicione uma mat&eacute;ria</h4>
 							Nome
 							<input type="text" name="subject.name">
 							Cor
@@ -223,22 +223,25 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<input type="submit" value="Adicionar mat�ria" class="waves-effect waves-green btn-flat modal-action modal-close">
+						<button class="btn waves-effect waves-green modal-action modal-close" type="submit" name="action">
+							Adicionar Mat&eacute;ria
+						</button>
 					</div>
 				</form>
 				<form action='<c:url value='/nova-tarefa'/>' method="post" id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma tarefa</h4>
-						Título
+						T&iacute;tulo
 						<input type="text" name="task.title">
 
-						Matéria
+						Mat&eacute;ria
 						<input list="subjects" name="task.subject.name" >
 						<datalist id="subjects">
 							<c:forEach items="${user.subjects}" var="subject">
 								<option value="${subject.name}">${subject.name}</option>
 							</c:forEach>
 						</datalist>
+						<br/>
 
 						Status
 						<input list="status" name="task.status" >
@@ -247,14 +250,15 @@
 							<option value="DOING">DOING</option>
 							<option value="DONE">DONE</option>
 						</datalist>
+						<br/>
 
-						Descrição
+						Descri&cedil;&atilde;o
 						<input type="text" name="task.description">
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<button class="btn beasy-green waves-effect waves-green modal-action modal-close" type="submit" name="action">
-							Adicionar Matérias
+						<button class="btn waves-effect waves-green modal-action modal-close" type="submit" name="action">
+							Adicionar Tarefa
 						</button>
 						<!--<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">-->
 					</div>
