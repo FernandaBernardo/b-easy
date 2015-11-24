@@ -7,14 +7,12 @@ import javax.inject.Inject;
 import br.com.beasy.dao.SubjectDao;
 import br.com.beasy.dao.TaskDao;
 import br.com.beasy.dao.UserDao;
-import br.com.beasy.interceptor.AuthenticationRequired;
 import br.com.beasy.model.Subject;
 import br.com.beasy.model.Task;
 import br.com.beasy.model.User;
 import br.com.beasy.model.UserType;
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
-import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
@@ -46,7 +44,8 @@ public class MobileController {
 			subject.setTasks(taskDao.getAllTasksFromSubject(subject));
 		}
 		
-		result.use(Results.json()).from(user).include("subjects").serialize();
+		result.use(Results.json()).from(user).serialize();
+		result.use(Results.json()).from(user.getSubjects()).include("tasks").serialize();
 		result.nothing();
 	}
 	
@@ -62,7 +61,12 @@ public class MobileController {
 		List<Subject> subjects = subjectDao.getAllSubjectsFromUser(user);
 		user.setSubjects(subjects);
 		
-		result.use(Results.json()).from(user).include("subjects").serialize();
+		for (Subject subject : subjects) {
+			subject.setTasks(taskDao.getAllTasksFromSubject(subject));
+		}
+		
+		result.use(Results.json()).from(user).serialize();
+		result.use(Results.json()).from(user.getSubjects()).include("tasks").serialize();
 		result.nothing();
 	}
 	
