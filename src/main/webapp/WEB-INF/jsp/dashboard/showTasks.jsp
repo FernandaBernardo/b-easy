@@ -203,75 +203,73 @@
 				<!--end container-->
 
 				<!-- modals com adi��o de materias e tarefas -->
-				<div id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+				<!-- modals com adi��o de materias e tarefas -->
+				<form action="<c:url value='/nova-materia'/>" method="post" id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
-						<h4>Adicione uma Mat�ria</h4>
-						<form class="col s12">
-							<div class="row">
-								<div class="input-field col s12">
-									<input placeholder="C�lculo" id="project_name" type="text" class="validate"> <label for="project_name" class="active">Mat�ria</label>
-								</div>
+						<h4>Adicione uma mat&eacute;ria</h4>
+						<div class="row">
+							<div class="input-field col s12">
+								Nome
+								<input type="text" name="subject.name">
 							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<textarea id="project_comment" class="materialize-textarea"></textarea>
-									<label for="project_comment" class="">Descri��o</label>
-								</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								Cor
+								<input type="color" name="subject.color">
 							</div>
-						</form>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+						<button class="btn-flat waves-effect waves-green modal-action modal-close" type="submit" name="action">
+							Adicionar Mat&eacute;ria
+						</button>
 					</div>
-				</div>
-				<div id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
+				</form>
+				<form action='<c:url value='/nova-tarefa'/>' method="post" id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma tarefa</h4>
-						<form class="col s12">
-							<div class="row">
-								<div class="input-field col s9">
-									<input placeholder="Pesquisar refer�ncias" id="task_name" type="text" class="validate"> <label for="task_name" class="active">Tarefa</label>
-								</div>
-								<div class="input-field col s3">
-									<!--<input type="date" class="datepicker">-->
-									<input placeholder="02/02/2016" id="task_date" type="text" class="validate"> <label for="task_date" class="active">Data</label>
-								</div>
+						<div class="row">
+							<div class="input-field col s6">
+								T&iacute;tulo
+								<input type="text" name="task.title">
 							</div>
-							<div class="row">
-								<div class="col s9">
-									<label>Projeto</label> <select class="browser-default">
-										<option value="" disabled="" selected="">Escolha um projeto</option>
-										<option value="1">Projeto Integrado de Sistemas de Informacao</option>
-										<option value="2">Administracao de Empresas</option>
-										<option value="3">Inteligencia Artificial</option>
-										<option value="4">Empreendedorismo</option>
-									</select>
-								</div>
-								<div class="col s3">
-									<label>Status</label> <select class="browser-default">
-										<option value="" disabled="" selected="">----</option>
-										<option value="1">TO-DO</option>
-										<option value="2">DOING</option>
-										<option value="3">DONE</option>
-									</select>
-								</div>
+							<div class="input-field col s3">
+								Mat&eacute;ria
+								<input list="subjects" name="task.subject.name" >
+								<datalist id="subjects">
+									<c:forEach items="${user.subjects}" var="subject">
+										<option value="${subject.name}">${subject.name}</option>
+									</c:forEach>
+								</datalist>
 							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<textarea id="task_comment" class="materialize-textarea"></textarea>
-									<label for="task_comment" class="">Coment�rios</label>
-								</div>
+							<div class="input-field col s3">
+								Status
+								<input list="status" name="task.status" >
+								<datalist id="status">
+									<option value="TODO">TO-DO</option>
+									<option value="DOING">DOING</option>
+									<option value="DONE">DONE</option>
+								</datalist>
 							</div>
-
-						</form>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								Descri&ccedil;&atilde;o
+								<input type="text" name="task.description">
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Adicionar</a>
+						<button class="btn-flat waves-effect waves-green modal-action modal-close" type="submit" name="action">
+							Adicionar Tarefa
+						</button>
+						<!--<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">-->
 					</div>
-				</div>
-
+				</form>
+				
 				<!-- modal para editar uma tarefa -->
 				<div id="modal-edit-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
