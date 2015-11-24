@@ -240,6 +240,14 @@
 								<option value="${subject.name}">${subject.name}</option>
 							</c:forEach>
 						</datalist>
+						Status
+						<input list="status" name="task.status" >
+						<datalist id="status">
+							<option value="TODO">TO-DO</option>
+							<option value="DOING">DOING</option>
+							<option value="DONE">DONE</option>
+						</datalist>
+
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
