@@ -216,14 +216,22 @@
 				<form action="<c:url value='/nova-materia'/>" method="post" id="modal-materia" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma mat&eacute;ria</h4>
-							Nome
-							<input type="text" name="subject.name">
-							Cor
-							<input type="color" name="subject.color">
+						<div class="row">
+							<div class="input-field col s12">
+								Nome
+								<input type="text" name="subject.name">
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								Cor
+								<input type="color" name="subject.color">
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<button class="btn waves-effect waves-green modal-action modal-close" type="submit" name="action">
+						<button class="btn-flat waves-effect waves-green modal-action modal-close" type="submit" name="action">
 							Adicionar Mat&eacute;ria
 						</button>
 					</div>
@@ -256,15 +264,15 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="input-field col s6">
-								Descri&cedil;&atilde;o
+							<div class="input-field col s12">
+								Descri&ccedil;&atilde;o
 								<input type="text" name="task.description">
 							</div>
 						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<button class="btn waves-effect waves-green modal-action modal-close" type="submit" name="action">
+						<button class="btn-flat waves-effect waves-green modal-action modal-close" type="submit" name="action">
 							Adicionar Tarefa
 						</button>
 						<!--<input type="submit" value="Adicionar matéria" class="waves-effect waves-green btn-flat modal-action modal-close">-->
