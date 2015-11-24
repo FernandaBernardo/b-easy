@@ -231,29 +231,36 @@
 				<form action='<c:url value='/nova-tarefa'/>' method="post" id="modal-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
 					<div class="modal-content">
 						<h4>Adicione uma tarefa</h4>
-						T&iacute;tulo
-						<input type="text" name="task.title">
-
-						Mat&eacute;ria
-						<input list="subjects" name="task.subject.name" >
-						<datalist id="subjects">
-							<c:forEach items="${user.subjects}" var="subject">
-								<option value="${subject.name}">${subject.name}</option>
-							</c:forEach>
-						</datalist>
-						<br/>
-
-						Status
-						<input list="status" name="task.status" >
-						<datalist id="status">
-							<option value="TODO">TO-DO</option>
-							<option value="DOING">DOING</option>
-							<option value="DONE">DONE</option>
-						</datalist>
-						<br/>
-
-						Descri&cedil;&atilde;o
-						<input type="text" name="task.description">
+						<div class="row">
+							<div class="input-field col s6">
+								T&iacute;tulo
+								<input type="text" name="task.title">
+							</div>
+							<div class="input-field col s3">
+								Mat&eacute;ria
+								<input list="subjects" name="task.subject.name" >
+								<datalist id="subjects">
+									<c:forEach items="${user.subjects}" var="subject">
+										<option value="${subject.name}">${subject.name}</option>
+									</c:forEach>
+								</datalist>
+							</div>
+							<div class="input-field col s3">
+								Status
+								<input list="status" name="task.status" >
+								<datalist id="status">
+									<option value="TODO">TO-DO</option>
+									<option value="DOING">DOING</option>
+									<option value="DONE">DONE</option>
+								</datalist>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s6">
+								Descri&cedil;&atilde;o
+								<input type="text" name="task.description">
+							</div>
+						</div>
 					</div>
 					<div class="modal-footer">
 						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
