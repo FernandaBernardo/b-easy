@@ -122,11 +122,11 @@
 									</li>
 									<c:forEach items="${subject.toDoTasks}" var="task">
 										<li class="collection-item dismissable" style="height: 3.5em;">
-											<div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa" data="${task.title};${task.status};${task.description}">${task.title}
-												<a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+											<div class="col m10 offset-m1 task-content modal-trigger" href="#modal-edit-tarefa" onclick="atualizaEdit(${task.title},${task.status},${task.description})">${task.title}
+
 											</div>
 											<div class="col m1">
-												<a href="#"><i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i></a>
+												<a onclick="changeStatus(${subject.id}, ${task.id}, 2)"><i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i></a>
 											</div>
 										</li>
 									</c:forEach>
@@ -152,7 +152,7 @@
 												<i style="line-height: inherit;" class="task-action action-backward go-todo  fa fa-angle-left fa-2x"></i>
 											</div>
 											<div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa">${task.title}
-												<a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+
 											</div>
 											<div class="col m1">
 												<i style="line-height: inherit;" class="task-action action-forward go-done fa fa-angle-right fa-2x"></i>
@@ -180,7 +180,7 @@
 												<i style="line-height: inherit;" class="task-action action-backward go-doing  fa fa-angle-left fa-2x"></i>
 											</div>
 											<div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa" style="text-decoration: line-through;">${task.title}
-												<a href="#" class="secondary-content"><span class="ultra-small alert">Ontem</span></a>
+
 											</div>
 										</li>
 									</c:forEach>
@@ -324,6 +324,21 @@
 
 	<!-- Toast Notification -->
 	<script type="text/javascript">
+
+		function atualizaEdit(title, status, desc){
+			console.log(title + " " + status + " " +desc);
+		}
+
+		function changeStatus(subid, id, status){
+			$.ajax({
+			  url: "http://b-easy.herokuapp.com/"+subid+"/taferas/"+id+"/"+status
+			}).done(function() {
+			  console.log("foi");
+			});
+		}
+
+
+
         //preenche o modal de edi��o com os valores da task
         $(".task-content").click(function(){
             console.log($(this));
@@ -339,8 +354,6 @@
 
             //construcao para doing
             if($(this).hasClass('go-doing')){
-				console.log($(this));
-
                 //get task content
                 var task = $(this).parent().parent().children()[0].innerHTML;
 
