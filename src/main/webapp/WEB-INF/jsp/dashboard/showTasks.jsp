@@ -126,7 +126,7 @@
 
 											</div>
 											<div class="col m1">
-												<a onclick="changeStatus(${subject.id}, ${task.id}, 2)"><i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i></a>
+												<a href="<c:url value='/${subject.id}/tarefas/${task.id}/2' />"><i style="line-height: inherit;" class="task-action action-forward go-doing fa fa-angle-right fa-2x"></i></a>
 											</div>
 										</li>
 									</c:forEach>
@@ -149,13 +149,13 @@
 									<c:forEach items="${subject.doingTasks}" var="task">
 										<li class="collection-item dismissable" style="height: 3.5em;">
 											<div class="col m1">
-												<i style="line-height: inherit;" class="task-action action-backward go-todo  fa fa-angle-left fa-2x"></i>
+												<a href="<c:url value='/${subject.id}/tarefas/${task.id}/0' />"><i style="line-height: inherit;" class="task-action action-backward go-todo  fa fa-angle-left fa-2x"></i></a>
 											</div>
 											<div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa">${task.title}
 
 											</div>
 											<div class="col m1">
-												<i style="line-height: inherit;" class="task-action action-forward go-done fa fa-angle-right fa-2x"></i>
+												<a href="<c:url value='/${subject.id}/tarefas/${task.id}/1' />"><i style="line-height: inherit;" class="task-action action-forward go-done fa fa-angle-right fa-2x"></i></a>
 											</div>
 										</li>
 									</c:forEach>
@@ -177,7 +177,7 @@
 									<c:forEach items="${subject.doneTasks}" var="task">
 										<li class="collection-item dismissable" style="height: 3.5em;">
 											<div class="col m1">
-												<i style="line-height: inherit;" class="task-action action-backward go-doing  fa fa-angle-left fa-2x"></i>
+												<a href="<c:url value='/${subject.id}/tarefas/${task.id}/2' />"><i style="line-height: inherit;" class="task-action action-backward go-doing  fa fa-angle-left fa-2x"></i></a>
 											</div>
 											<div class="col m10 task-content modal-trigger" href="#modal-edit-tarefa" style="text-decoration: line-through;">${task.title}
 
