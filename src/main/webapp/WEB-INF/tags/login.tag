@@ -7,12 +7,14 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="form-group">
-						<label for="login-name">Email</label> 
-						<input type="email" class="form-control" id="login-name" name="user.email" placeholder="seuemail@exemplo.com" required="required" />
+						<label for="login-name">Email</label> <input type="email"
+							class="form-control" id="login-name" name="user.email"
+							placeholder="seuemail@exemplo.com" required="required" />
 					</div>
 					<div class="form-group">
-						<label for="login-password"> Senha</label> 
-						<input type="password" class="form-control" id="login-password" name="user.password" required="required" />
+						<label for="login-password"> Senha</label> <input type="password"
+							class="form-control" id="login-password" name="user.password"
+							required="required" />
 					</div>
 
 					<div class="form-group">
@@ -20,17 +22,18 @@
 					</div>
 					<div class="form-group">
 						<a href="#cadastro" style="color: white">Cadastre-se</a>
-						&nbsp;&nbsp;|&nbsp;&nbsp; 
-						<a href="#" style="color: white"><i class="fa fa-long-arrow-right"></i>Esqueci minha senha</a>
+						&nbsp;&nbsp;|&nbsp;&nbsp; <a href="#" style="color: white"><i
+							class="fa fa-long-arrow-right"></i>Esqueci minha senha</a>
 					</div>
 				</div>
 			</div>
 		</form>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<hr class="marginbot-5">
-			<a href="<c:url value="/facebook" />" class="btn btn-facebook">entre com Facebook</a>
+		<div class="row">
+			<div class="col-md-12">
+				<hr class="marginbot-5">
+				<a href="<c:url value="/facebook" />" class="btn btn-facebook">entre
+					com Facebook</a>
+			</div>
 		</div>
 	</div>
 </div>
