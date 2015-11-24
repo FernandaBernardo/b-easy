@@ -269,49 +269,7 @@
 					</div>
 				</form>
 
-				<!-- modal para editar uma tarefa -->
-				<div id="modal-edit-tarefa" class="modal modal-fixed-footer" style="display: none; opacity: 1; top: 0px;">
-					<div class="modal-content">
-						<h4>Edite a tarefa</h4>
-						<form class="col s12">
-							<div class="row">
-								<div class="input-field col s9">
-									<input placeholder=" " id="task_edit_name" type="text" class="validate"> <label for="task_name" class="active">Tarefa</label>
-								</div>
-								<div class="input-field col s3">
-									<input placeholder="02/02/2016" id="task_edit_date" type="text" class="validate"> <label for="task_date" class="active">Data</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col s9">
-									<label>Projeto</label>
-									<select class="browser-default" id="task_edit_project">
-										<option value="" selected="">Inteligencia Artificial</option>
-									</select>
-								</div>
-								<div class="col s3">
-									<label>Status</label>
-									<select class="browser-default" id="task_edit_status">
-										<option value="todo">TO-DO</option>
-										<option value="doing">DOING</option>
-										<option value="done">DONE</option>
-									</select>
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<textarea id="task_edit_comment" class="materialize-textarea"></textarea>
-									<label for="task_comment" class="">Coment�rios</label>
-								</div>
-							</div>
 
-						</form>
-					</div>
-					<div class="modal-footer">
-						<a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancelar</a>
-						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Salvar altera��es</a>
-					</div>
-				</div>
 			</section>
 		<!-- END CONTENT -->
 		</div>
@@ -331,9 +289,9 @@
 
 		function changeStatus(subid, id, status){
 			$.ajax({
-			  url: "http://b-easy.herokuapp.com/"+subid+"/taferas/"+id+"/"+status
+			  url: "http://b-easy.herokuapp.com/"+subid+"/tarefas/"+id+"/"+status
 			}).done(function() {
-			  console.log("foi");
+			  location.reload():
 			});
 		}
 

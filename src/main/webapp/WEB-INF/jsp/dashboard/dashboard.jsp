@@ -125,7 +125,7 @@
 									</li>
 									<c:forEach items="${nextTasks}" var="task" varStatus="index">
 										<li class="collection-item dismissable" style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-											<input type="checkbox" id="task${index.count}">
+											<input type="checkbox" id="task${index.count}" disabled>
 											<label for="task${index.count}" style="text-decoration: none;">${task.title}<a href="#" class="secondary-content">
 												<span class="ultra-small alert">${task.finalDate}</span></a>
 											</label>
