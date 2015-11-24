@@ -191,7 +191,7 @@
 
 									</div>
 									<div class="card-action  pink darken-2">
-										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">50% h&aacute; um mês</p>
+										<p class="card-stats-compare white-text" style="text-align: center; padding: 0px; margin: 0px">50% h&aacute; um m&ecirc;s</p>
 									</div>
 								</div>
 							</div>

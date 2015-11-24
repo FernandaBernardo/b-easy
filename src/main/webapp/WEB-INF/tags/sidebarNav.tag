@@ -54,7 +54,7 @@
 		<li class="bold active"><a href='<c:url value="/dashboard" />' class="waves-effect waves-cyan"><i class="fa fa-home"></i> Dashboard</a></li>
 		<li class="no-padding">
 			<ul class="collapsible collapsible-accordion">
-				<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-folder"></i> Mat�rias</a>
+				<li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="fa fa-folder"></i> Mat&eacute;rias</a>
 					<div class="collapsible-body">
 						<ul>
 							<c:forEach items="${user.subjects}" var="subject">
